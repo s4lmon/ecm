@@ -8,7 +8,7 @@
 
 
 
-struct DC_motor {
+struct Motor {
     char power; //motor power, out of 100
     char direction; //motor direction, forward(1), reverse(0)
     unsigned char *duty_low; //PWM duty low byte address

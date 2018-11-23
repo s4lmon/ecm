@@ -1,5 +1,4 @@
-
-
+#include "lcd.h"
 /*To toggle enable bit on then off*/
 void E_TOG(void)
 {
@@ -31,7 +30,9 @@ void LCD_out(unsigned char number)
 }
  
 
-/*function to send data over 4 bit interface*/
+/*
+ * function to send data over 4 bit interface
+ */
 void LCD_send (unsigned char Byte,char type)
 {
     // set RS pin whether it is a Command (0) or Data/Char (1)
@@ -40,10 +41,10 @@ void LCD_send (unsigned char Byte,char type)
     PORTAbits.RA6=type;
     
     // send high bits of Byte using LCDout function
-    LCDout(Byte>>4);
+    LCD_out(Byte>>4);
     __delay_us(10); //10us delay
     // send low bits of Byte using LCDout function
-    LCDout(Byte);
+    LCD_out(Byte);
     __delay_us(50); 
     
 }
@@ -85,8 +86,9 @@ void LCD_init(void)
     __delay_ms(2); 
  
 }
-
-/*To set cursor to correct line (of two)*/
+/*
+ * To set cursor to correct line (of two)
+ */
 void LCD_line (char line)
 {
     if (line == 1){
@@ -97,8 +99,9 @@ void LCD_line (char line)
     }
     __delay_us(50); //50us delay
 }
- 
-/*To print character by character to screen*/
+/*
+ * To print character by character to screen
+ */
 void LCD_string (char *string)
 {
 while(*string != 0)
@@ -111,9 +114,31 @@ while(*string != 0)
     //your message to appear almost instantly)
     }
 }
-
-/*To clear LCD*/
-void LCD_clear(void){
+/*
+ * To clear LCD
+ */
+void LCD_clear(void)
+{
     LCD_send(0b00000001,0);
     __delay_ms(2);
+}
+/*
+ * To print IR values to LCD
+ */
+void LCD_infrared(char *buffer_left, char *buffer_right, struct Sensor_ir)
+{
+    LCD_clear();
+    
+    sprintf(buffer_left);
+    sprintf(buffer_right);
+    
+    LCD_line(1);
+    LCD_string(buffer_right);
+    LCD_line(2);
+    LCD_string(buffer_left);
+    __delay_ms(50);
+    __delay_ms(50);
+    __delay_ms(50);
+    __delay_ms(50);
+
 }

@@ -5249,39 +5249,57 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 # 1 "./lcd.h" 1
-# 11 "./lcd.h"
+# 10 "./lcd.h"
+# 1 "./ir.h" 1
+
+
+
+
+
+
+
+
+struct Sensor_ir {
+    int left;
+    int right;
+
+};
+
+void init_TIMER5();
+void init_capture();
+void print_IR();
+# 10 "./lcd.h" 2
+
+
+
 void E_TOG(void);
 void LCD_out(unsigned char number);
-void LCD_send(unsigned char Byte, int type);
+void LCD_send(unsigned char Byte, char type);
 void LCD_init(void);
-void LCD_line (int line);
+void LCD_line (char line);
 void LCD_string(char *string);
 void LCD_clear(void);
+void LCD_infrared(char *buffer_left, char *buffer_right, struct Sensor_ir *Values);
 # 5 "main.c" 2
 
 
 
 
 
-void init_TIMER5(void)
-{
-
-
-
-
-    T5CONbits.T5SEN = 0;
-    T5CONbits.RESEN = 0;
-    T5CONbits.T5PS = 0b00;
-    T5CONbits.T5SYNC = 0;
-    T5CONbits.TMR5CS = 0;
-    T5CONbits.TMR5ON = 1;
-
-
-
-}
 
 
 void main(void)
 {
-    init_TIMER5();
-}
+    OSCCON = 0x72;
+    while (!OSCCONbits.IOFS);
+
+
+    char buffer_left[16], buffer_right[16];
+
+    struct Sensor_ir *Sensors;
+    Sensors.left = 0;
+    Sensors.right = 0;
+    print_IR(&Sensors);
+
+    LCD_infrared(&buffer_left, &buffer_right, &Sensors);
+}_

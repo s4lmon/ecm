@@ -9,6 +9,7 @@ void init_TIMER5(void)
     /*need to reset TMR5
      *see page 139
      */
+     
     
     T5CONbits.T5SEN = 0;        /*disable during sleep            */
     T5CONbits.RESEN = 0;        /*disable special event trigger   */
@@ -22,7 +23,7 @@ void init_TIMER5(void)
 /*
  * Detect falling edge to rising edge from IR detector
  */
-void init_capture_channel(void)
+void init_capture(void)
 {
     ANSEL0 = 0; /*configuring digital input */
     ANSEL1 = 0;
@@ -32,4 +33,13 @@ void init_capture_channel(void)
     CAP1CONbits.CAP1M = 0b0110;
     CAP1CONbits.CAP1REN = 1;
     CAP1CONbits.CAP1M = 0b0110;
+}
+
+/*
+ * Printing IR signal
+ */
+void print_IR(struct Sensor_ir *value)
+{
+    *value.left = (CAP2BUFH << 8) | (CAP2BUFL); //left is cap2, i.e. lower
+    *value.right = (CAP1BUFH << 8) | (CAP1BUFL);
 }
