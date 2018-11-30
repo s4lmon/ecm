@@ -125,20 +125,20 @@ void LCD_clear(void)
 /*
  * To print IR values to LCD
  */
-void LCD_infrared(char *buffer_left, char *buffer_right, struct Sensor_ir)
-{
-    LCD_clear();
-    
-    sprintf(buffer_left);
-    sprintf(buffer_right);
-    
-    LCD_line(1);
-    LCD_string(buffer_right);
-    LCD_line(2);
-    LCD_string(buffer_left);
-    __delay_ms(50);
-    __delay_ms(50);
-    __delay_ms(50);
-    __delay_ms(50);
-
-}
+//void LCD_infrared(char *buffer_left, char *buffer_right, struct Sensor_ir)
+//{
+//    LCD_clear();
+//    
+//    sprintf(buffer_left);
+//    sprintf(buffer_right);
+//    
+//    LCD_line(1);
+//    LCD_string(buffer_right);
+//    LCD_line(2);
+//    LCD_string(buffer_left);
+//    __delay_ms(50);
+//    __delay_ms(50);
+//    __delay_ms(50);
+//    __delay_ms(50);
+//
+//}

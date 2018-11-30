@@ -7,14 +7,14 @@
 #define _XTAL_FREQ 8000000
 
 struct Sensor_ir {
-    int left; 
-    int right; 
+    unsigned int left; 
+    unsigned int right; 
    
 };
 
-void init_TIMER5();
-void init_capture();
-void print_IR();
+void init_TIMER5(void);
+void init_capture(void);
+void read_IR(struct Sensor_ir *values);
 
 #endif	
 

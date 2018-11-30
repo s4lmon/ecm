@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=final.X
+PROJECTNAME=ecm
 
 # Active Configuration
 DEFAULTCONF=default
