@@ -5178,8 +5178,8 @@ void init_capture(void)
 
 
 
-void read_IR(struct Sensor_ir *values)
+void read_IR(struct Sensor_ir *Values)
 {
-    values->left = ((CAP2BUFH << 8) | (CAP2BUFL))/1;
-    values->right = ((CAP1BUFH << 8) | (CAP1BUFL))/1;
+    Values->left = ((CAP2BUFH << 8) | (CAP2BUFL))/1;
+    Values->right = ((CAP1BUFH << 8) | (CAP1BUFL))/1;
 }

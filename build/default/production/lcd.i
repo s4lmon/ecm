@@ -5295,33 +5295,33 @@ void LCD_init(void);
 void LCD_line (char line);
 void LCD_string(char *string);
 void LCD_clear(void);
+void print_IR(struct Sensor_ir *Values);
 # 1 "lcd.c" 2
 
 
-void E_TOG(void)
-{
-    PORTCbits.RC0=1;
+
+void E_TOG(void) {
+    PORTCbits.RC0 = 1;
     _delay((unsigned long)((5)*(8000000/4000000.0)));
-    PORTCbits.RC0=0;
+    PORTCbits.RC0 = 0;
     _delay((unsigned long)((5)*(8000000/4000000.0)));
 }
 
 
-void time (int t)
-{
-    for(int k=0;k<t;k++)
-    {_delay((unsigned long)((90)*(8000000/4000.0)));
+void time(int t) {
+    for (int k = 0; k < t; k++) {
+        _delay((unsigned long)((90)*(8000000/4000.0)));
     }
 }
 
+
 void LCD_out(unsigned char number)
+ {
 
-{
-
-    PORTCbits.RC1=(number&0b0001);
-    PORTCbits.RC2=(number&0b0010)>>1;
-    PORTDbits.RD0=(number&0b0100)>>2;
-    PORTDbits.RD1=(number&0b1000)>>3;
+    PORTCbits.RC1 = (number & 0b0001);
+    PORTCbits.RC2 = (number & 0b0010) >> 1;
+    PORTDbits.RD0 = (number & 0b0100) >> 2;
+    PORTDbits.RD1 = (number & 0b1000) >> 3;
 
     E_TOG();
     _delay((unsigned long)((5)*(8000000/4000000.0)));
@@ -5330,16 +5330,14 @@ void LCD_out(unsigned char number)
 
 
 
-
-void LCD_send (unsigned char Byte,char type)
-{
+void LCD_send(unsigned char Byte, char type) {
 
 
 
-    PORTAbits.RA6=type;
+    PORTAbits.RA6 = type;
 
 
-    LCD_out(Byte>>4);
+    LCD_out(Byte >> 4);
     _delay((unsigned long)((10)*(8000000/4000000.0)));
 
     LCD_out(Byte);
@@ -5347,18 +5345,17 @@ void LCD_send (unsigned char Byte,char type)
 
 }
 
-void LCD_init(void)
-{
+void LCD_init(void) {
 
 
-    LATA=0;
-    LATC=0;
-    LATD=0;
+    LATA = 0;
+    LATC = 0;
+    LATD = 0;
 
 
-    TRISA=0;
-    TRISC=0;
-    TRISD=0;
+    TRISA = 0;
+    TRISC = 0;
+    TRISD = 0;
 
 
 
@@ -5372,42 +5369,40 @@ void LCD_init(void)
     LCD_out(0b0010);
     _delay((unsigned long)((50)*(8000000/4000000.0)));
 
-    LCD_send(0b00101000,0);
+    LCD_send(0b00101000, 0);
     _delay((unsigned long)((2)*(8000000/4000.0)));
-    LCD_send(0b00001000,0);
+    LCD_send(0b00001000, 0);
     _delay((unsigned long)((2)*(8000000/4000.0)));
-    LCD_send(0b00000001,0);
+    LCD_send(0b00000001, 0);
     _delay((unsigned long)((2)*(8000000/4000.0)));
-    LCD_send(0b00000110,0);
+    LCD_send(0b00000110, 0);
     _delay((unsigned long)((2)*(8000000/4000.0)));
-    LCD_send(0b00001100,0);
+    LCD_send(0b00001100, 0);
     _delay((unsigned long)((2)*(8000000/4000.0)));
 
 }
 
 
 
-void LCD_line (char line)
-{
-    if (line == 1){
-    LCD_send(0x80,0);
-    }
-    else if (line == 2){
-    LCD_send(0xC0,0);
+
+void LCD_line(char line) {
+    if (line == 1) {
+        LCD_send(0x80, 0);
+    } else if (line == 2) {
+        LCD_send(0xC0, 0);
     }
     _delay((unsigned long)((50)*(8000000/4000000.0)));
 }
 
 
 
-void LCD_string (char *string)
-{
-while(*string != 0)
-    {
+
+void LCD_string(char *string) {
+    while (*string != 0) {
 
 
-    LCD_send(*string++,1);
-    _delay((unsigned long)((50)*(8000000/4000000.0)));
+        LCD_send(*string++, 1);
+        _delay((unsigned long)((50)*(8000000/4000000.0)));
 
 
     }
@@ -5415,8 +5410,27 @@ while(*string != 0)
 
 
 
-void LCD_clear(void)
-{
-    LCD_send(0b00000001,0);
+
+void LCD_clear(void) {
+    LCD_send(0b00000001, 0);
     _delay((unsigned long)((2)*(8000000/4000.0)));
+}
+
+
+
+
+void print_IR(struct Sensor_ir *Values) {
+    LCD_clear();
+    char buf[16];
+    LCD_line(1);
+    sprintf(buf, "Left: %u", Values->left);
+    LCD_string(buf);
+    LCD_line(2);
+    sprintf(buf, "Right: %u", Values->right);
+    LCD_string(buf);
+    _delay((unsigned long)((50)*(8000000/4000.0)));
+    _delay((unsigned long)((50)*(8000000/4000.0)));
+    _delay((unsigned long)((50)*(8000000/4000.0)));
+    _delay((unsigned long)((50)*(8000000/4000.0)));
+
 }

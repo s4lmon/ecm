@@ -5285,6 +5285,7 @@ void LCD_init(void);
 void LCD_line (char line);
 void LCD_string(char *string);
 void LCD_clear(void);
+void print_IR(struct Sensor_ir *Values);
 # 7 "main.c" 2
 
 
@@ -5311,20 +5312,12 @@ void main(void) {
     LCD_init();
     init_capture();
 
-    struct Sensor_ir values;
+    struct Sensor_ir Values;
 
     while (1) {
-        read_IR(&values);
+        read_IR(&Values);
 
-        char buf[16];
-        LCD_send(0b00000001, 0);
-        LCD_line(1);
-        sprintf(buf, "Left: %u", values.left);
-        LCD_string(buf);
-        LCD_line(2);
-        sprintf(buf, "Right: %u", values.right);
-        LCD_string(buf);
-
+        print_IR(&Values);
 
 
 

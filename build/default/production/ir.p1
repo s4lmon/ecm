@@ -667,24 +667,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 316 ]
 }
 "52
-[; ;ir.c: 52: void read_IR(struct Sensor_ir *values)
+[; ;ir.c: 52: void read_IR(struct Sensor_ir *Values)
 [v _read_IR `(v ~T0 @X0 1 ef1`*S314 ]
 "53
 [; ;ir.c: 53: {
 {
 [e :U _read_IR ]
 "52
-[; ;ir.c: 52: void read_IR(struct Sensor_ir *values)
-[v _values `*S314 ~T0 @X0 1 r1 ]
+[; ;ir.c: 52: void read_IR(struct Sensor_ir *Values)
+[v _Values `*S314 ~T0 @X0 1 r1 ]
 "53
 [; ;ir.c: 53: {
 [f ]
 "54
-[; ;ir.c: 54:     values->left = ((CAP2BUFH << 8) | (CAP2BUFL))/1;
-[e = . *U _values 0 -> / | << -> _CAP2BUFH `i -> 8 `i -> _CAP2BUFL `i -> 1 `i `ui ]
+[; ;ir.c: 54:     Values->left = ((CAP2BUFH << 8) | (CAP2BUFL))/1;
+[e = . *U _Values 0 -> / | << -> _CAP2BUFH `i -> 8 `i -> _CAP2BUFL `i -> 1 `i `ui ]
 "55
-[; ;ir.c: 55:     values->right = ((CAP1BUFH << 8) | (CAP1BUFL))/1;
-[e = . *U _values 1 -> / | << -> _CAP1BUFH `i -> 8 `i -> _CAP1BUFL `i -> 1 `i `ui ]
+[; ;ir.c: 55:     Values->right = ((CAP1BUFH << 8) | (CAP1BUFL))/1;
+[e = . *U _Values 1 -> / | << -> _CAP1BUFH `i -> 8 `i -> _CAP1BUFL `i -> 1 `i `ui ]
 "56
 [; ;ir.c: 56: }
 [e :UE 317 ]

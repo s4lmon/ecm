@@ -41,17 +41,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17
 [; ;./ir.h: 17: void read_IR(struct Sensor_ir *values);
 [v _read_IR `(v ~T0 @X0 0 ef1`*S316 ]
-"15 ./lcd.h
-[; ;./lcd.h: 15: void LCD_send(unsigned char Byte, char type);
-[v _LCD_send `(v ~T0 @X0 0 ef2`uc`uc ]
-"17
-[; ;./lcd.h: 17: void LCD_line (char line);
-[v _LCD_line `(v ~T0 @X0 0 ef1`uc ]
-"115 /Applications/microchip/xc8/v2.00/pic/include/c99/stdio.h
-[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
-"18 ./lcd.h
-[; ;./lcd.h: 18: void LCD_string(char *string);
-[v _LCD_string `(v ~T0 @X0 0 ef1`*uc ]
+"20 ./lcd.h
+[; ;./lcd.h: 20: void print_IR(struct Sensor_ir *Values);
+[v _print_IR `(v ~T0 @X0 0 ef1`*S316 ]
 [v F3079 `(v ~T0 @X0 1 tf1`ul ]
 "183 /Applications/microchip/xc8/v2.00/pic/include/pic18.h
 [v __delay `JF3079 ~T0 @X0 0 e ]
@@ -628,52 +620,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 30:     init_capture();
 [e ( _init_capture ..  ]
 "32
-[; ;main.c: 32:     struct Sensor_ir values;
-[v _values `S316 ~T0 @X0 1 a ]
+[; ;main.c: 32:     struct Sensor_ir Values;
+[v _Values `S316 ~T0 @X0 1 a ]
 "34
 [; ;main.c: 34:     while (1) {
 [e :U 323 ]
 {
 "35
-[; ;main.c: 35:         read_IR(&values);
-[e ( _read_IR (1 &U _values ]
+[; ;main.c: 35:         read_IR(&Values);
+[e ( _read_IR (1 &U _Values ]
 "37
-[; ;main.c: 37:         char buf[16];
-[v _buf `uc ~T0 @X0 -> 16 `i a ]
-"38
-[; ;main.c: 38:         LCD_send(0b00000001, 0);
-[e ( _LCD_send (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-"39
-[; ;main.c: 39:         LCD_line(1);
-[e ( _LCD_line (1 -> -> 1 `i `uc ]
-"40
-[; ;main.c: 40:         sprintf(buf, "Left: %u", values.left);
-[e ( _sprintf (1 , (. , &U _buf :s 1C . _values 0 ]
+[; ;main.c: 37:         print_IR(&Values);
+[e ( _print_IR (1 &U _Values ]
 "41
-[; ;main.c: 41:         LCD_string(buf);
-[e ( _LCD_string (1 &U _buf ]
-"42
-[; ;main.c: 42:         LCD_line(2);
-[e ( _LCD_line (1 -> -> 2 `i `uc ]
-"43
-[; ;main.c: 43:         sprintf(buf, "Right: %u", values.right);
-[e ( _sprintf (1 , (. , &U _buf :s 2C . _values 1 ]
-"44
-[; ;main.c: 44:         LCD_string(buf);
-[e ( _LCD_string (1 &U _buf ]
-"49
-[; ;main.c: 49:         _delay((unsigned long)((500)*(8000000/4000.0)));
+[; ;main.c: 41:         _delay((unsigned long)((500)*(8000000/4000.0)));
 [e ( __delay (1 -> * -> -> 500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"50
-[; ;main.c: 50:     }
+"42
+[; ;main.c: 42:     }
 }
 [e :U 322 ]
 [e $U 323  ]
 [e :U 324 ]
-"53
-[; ;main.c: 53: }
+"45
+[; ;main.c: 45: }
 [e :UE 318 ]
 }
-[p f _sprintf 8389632 ]
-[a 2C 82 105 103 104 116 58 32 37 117 0 ]
-[a 1C 76 101 102 116 58 32 37 117 0 ]

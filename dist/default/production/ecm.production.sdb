@@ -53,18 +53,22 @@
 [v _init_capture init_capture `(v  1 e 1 0 ]
 "52
 [v _read_IR read_IR `(v  1 e 1 0 ]
-"3 /Users/hasan/Box Sync/me4/ecm/lcd.c
+"4 /Users/hasan/Box Sync/me4/ecm/lcd.c
 [v _E_TOG E_TOG `(v  1 e 1 0 ]
 "19
 [v _LCD_out LCD_out `(v  1 e 1 0 ]
-"36
+"34
 [v _LCD_send LCD_send `(v  1 e 1 0 ]
-"52
+"49
 [v _LCD_init LCD_init `(v  1 e 1 0 ]
-"92
+"89
 [v _LCD_line LCD_line `(v  1 e 1 0 ]
-"105
+"101
 [v _LCD_string LCD_string `(v  1 e 1 0 ]
+"115
+[v _LCD_clear LCD_clear `(v  1 e 1 0 ]
+"123
+[v _print_IR print_IR `(v  1 e 1 0 ]
 "21 /Users/hasan/Box Sync/me4/ecm/main.c
 [v _main main `(v  1 e 1 0 ]
 "52 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
@@ -201,14 +205,14 @@
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "5034
 [v _T5CON T5CON `VEuc  1 e 1 @4023 ]
-[s S377 . 1 `uc 1 . 1 0 :2:0 
+[s S384 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T5SYNC 1 0 :1:2 
 ]
 "5072
-[s S380 . 1 `uc 1 . 1 0 :6:0 
+[s S387 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 NOT_RESEN 1 0 :1:6 
 ]
-[s S383 . 1 `uc 1 TMR5ON 1 0 :1:0 
+[s S390 . 1 `uc 1 TMR5ON 1 0 :1:0 
 `uc 1 TMR5CS 1 0 :1:1 
 `uc 1 nT5SYNC 1 0 :1:2 
 `uc 1 T5PS 1 0 :2:3 
@@ -216,45 +220,45 @@
 `uc 1 nRESEN 1 0 :1:6 
 `uc 1 T5SEN 1 0 :1:7 
 ]
-[s S391 . 1 `uc 1 . 1 0 :2:0 
+[s S398 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T5SYNC 1 0 :1:2 
 `uc 1 T5PS0 1 0 :1:3 
 `uc 1 T5PS1 1 0 :1:4 
 `uc 1 . 1 0 :1:5 
 `uc 1 RESEN 1 0 :1:6 
 ]
-[s S398 . 1 `uc 1 . 1 0 :1:0 
+[s S405 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD165 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SOSCEN5 1 0 :1:3 
 ]
-[u S403 . 1 `S377 1 . 1 0 `S380 1 . 1 0 `S383 1 . 1 0 `S391 1 . 1 0 `S398 1 . 1 0 ]
-[v _T5CONbits T5CONbits `VES403  1 e 1 @4023 ]
+[u S410 . 1 `S384 1 . 1 0 `S387 1 . 1 0 `S390 1 . 1 0 `S398 1 . 1 0 `S405 1 . 1 0 ]
+[v _T5CONbits T5CONbits `VES410  1 e 1 @4023 ]
 "5152
 [v _ANSEL0 ANSEL0 `VEuc  1 e 1 @4024 ]
 "5214
 [v _ANSEL1 ANSEL1 `VEuc  1 e 1 @4025 ]
 "6702
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-[s S296 . 1 `uc 1 SCS 1 0 :2:0 
+[s S315 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 IOFS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "6728
-[s S302 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S321 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[s S309 . 1 `uc 1 . 1 0 :2:0 
+[s S328 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 FLTS 1 0 :1:2 
 ]
-[u S312 . 1 `S296 1 . 1 0 `S302 1 . 1 0 `S309 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES312  1 e 1 @4051 ]
+[u S331 . 1 `S315 1 . 1 0 `S321 1 . 1 0 `S328 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES331  1 e 1 @4051 ]
 "55 /Applications/microchip/xc8/v2.00/pic/sources/c99/common/doprnt.c
 [v _flags flags `i  1 s 2 flags ]
 [v _prec prec `i  1 s 2 prec ]
@@ -266,19 +270,34 @@
 "21 /Users/hasan/Box Sync/me4/ecm/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"37
-[v main@buf buf `[16]uc  1 a 16 10 ]
-[s S338 Sensor_ir 4 `ui 1 left 2 0 `ui 1 right 2 2 ]
+[s S251 Sensor_ir 4 `ui 1 left 2 0 `ui 1 right 2 2 ]
 "32
-[v main@values values `S338  1 a 4 26 ]
-"53
+[v main@Values Values `S251  1 a 4 28 ]
+"45
+} 0
+"52 /Users/hasan/Box Sync/me4/ecm/ir.c
+[v _read_IR read_IR `(v  1 e 1 0 ]
+{
+[s S251 Sensor_ir 4 `ui 1 left 2 0 `ui 1 right 2 2 ]
+[v read_IR@Values Values `*.39S251  1 p 2 0 ]
+"56
+} 0
+"123 /Users/hasan/Box Sync/me4/ecm/lcd.c
+[v _print_IR print_IR `(v  1 e 1 0 ]
+{
+"125
+[v print_IR@buf buf `[16]uc  1 a 16 10 ]
+[s S251 Sensor_ir 4 `ui 1 left 2 0 `ui 1 right 2 2 ]
+"123
+[v print_IR@Values Values `*.39S251  1 p 2 91 ]
+"137
 } 0
 "9 /Applications/microchip/xc8/v2.00/pic/sources/c99/common/nf_sprintf.c
 [v _sprintf sprintf `(i  1 e 2 0 ]
 {
-[s S966 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[s S973 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
 "13
-[v sprintf@f f `S966  1 a 6 4 ]
+[v sprintf@f f `S973  1 a 6 4 ]
 "12
 [v sprintf@ap ap `[1]*.39v  1 a 2 2 ]
 "11
@@ -293,9 +312,9 @@
 {
 "1371
 [v vfprintf@cfmt cfmt `*.32uc  1 a 2 83 ]
-[s S467 _IO_FILE 0 ]
+[s S474 _IO_FILE 0 ]
 "1368
-[v vfprintf@fp fp `*.39S467  1 p 2 77 ]
+[v vfprintf@fp fp `*.39S474  1 p 2 77 ]
 [v vfprintf@fmt fmt `*.32Cuc  1 p 2 79 ]
 [v vfprintf@ap ap `*.39*.39v  1 p 2 81 ]
 "1382
@@ -305,9 +324,9 @@
 {
 "675
 [v vfpfcnvrt@llu llu `uo  1 a 8 69 ]
-[s S467 _IO_FILE 0 ]
+[s S474 _IO_FILE 0 ]
 "670
-[v vfpfcnvrt@fp fp `*.39S467  1 p 2 59 ]
+[v vfpfcnvrt@fp fp `*.39S474  1 p 2 59 ]
 [v vfpfcnvrt@fmt fmt `*.39*.32uc  1 p 2 61 ]
 [v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 63 ]
 "1365
@@ -321,9 +340,9 @@
 [v utoa@i i `i  1 a 2 57 ]
 [v utoa@w w `i  1 a 2 47 ]
 [v utoa@p p `i  1 a 2 45 ]
-[s S467 _IO_FILE 0 ]
+[s S474 _IO_FILE 0 ]
 "593
-[v utoa@fp fp `*.39S467  1 p 2 27 ]
+[v utoa@fp fp `*.39S474  1 p 2 27 ]
 [v utoa@d d `uo  1 p 8 29 ]
 "619
 } 0
@@ -333,9 +352,9 @@
 "74
 [v pad@w w `i  1 a 2 25 ]
 [v pad@i i `i  1 a 2 23 ]
-[s S467 _IO_FILE 0 ]
+[s S474 _IO_FILE 0 ]
 "72
-[v pad@fp fp `*.39S467  1 p 2 16 ]
+[v pad@fp fp `*.39S474  1 p 2 16 ]
 [v pad@buf buf `*.39uc  1 p 2 18 ]
 [v pad@p p `i  1 p 2 20 ]
 "95
@@ -358,16 +377,16 @@
 [v fputs@c c `uc  1 a 1 13 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 9 ]
-[s S966 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputs@fp fp `*.39S966  1 p 2 11 ]
+[s S973 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputs@fp fp `*.39S973  1 p 2 11 ]
 "19
 } 0
 "8 /Applications/microchip/xc8/v2.00/pic/sources/c99/common/nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 0 ]
-[s S966 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.39S966  1 p 2 2 ]
+[s S973 _IO_FILE 6 `*.39uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputc@fp fp `*.39S973  1 p 2 2 ]
 "21
 } 0
 "7 /Applications/microchip/xc8/v2.00/pic/sources/c99/common/putch.c
@@ -397,58 +416,55 @@
 [v ___lodiv@divisor divisor `uo  1 p 8 8 ]
 "32
 } 0
-"52 /Users/hasan/Box Sync/me4/ecm/ir.c
-[v _read_IR read_IR `(v  1 e 1 0 ]
-{
-[s S338 Sensor_ir 4 `ui 1 left 2 0 `ui 1 right 2 2 ]
-[v read_IR@values values `*.39S338  1 p 2 0 ]
-"56
-} 0
-"27
-[v _init_capture init_capture `(v  1 e 1 0 ]
-{
-"47
-} 0
-"105 /Users/hasan/Box Sync/me4/ecm/lcd.c
+"101 /Users/hasan/Box Sync/me4/ecm/lcd.c
 [v _LCD_string LCD_string `(v  1 e 1 0 ]
 {
 [v LCD_string@string string `*.39uc  1 p 2 4 ]
-"116
+"110
 } 0
-"92
+"89
 [v _LCD_line LCD_line `(v  1 e 1 0 ]
 {
 [v LCD_line@line line `uc  1 a 1 wreg ]
 [v LCD_line@line line `uc  1 a 1 wreg ]
-"94
 [v LCD_line@line line `uc  1 a 1 4 ]
-"101
+"96
 } 0
-"52
+"115
+[v _LCD_clear LCD_clear `(v  1 e 1 0 ]
+{
+"118
+} 0
+"27 /Users/hasan/Box Sync/me4/ecm/ir.c
+[v _init_capture init_capture `(v  1 e 1 0 ]
+{
+"47
+} 0
+"49 /Users/hasan/Box Sync/me4/ecm/lcd.c
 [v _LCD_init LCD_init `(v  1 e 1 0 ]
 {
-"88
+"84
 } 0
-"36
+"34
 [v _LCD_send LCD_send `(v  1 e 1 0 ]
 {
 [v LCD_send@Byte Byte `uc  1 a 1 wreg ]
 [v LCD_send@Byte Byte `uc  1 a 1 wreg ]
 [v LCD_send@type type `uc  1 p 1 2 ]
-"41
+"38
 [v LCD_send@Byte Byte `uc  1 a 1 3 ]
-"50
+"47
 } 0
 "19
 [v _LCD_out LCD_out `(v  1 e 1 0 ]
 {
 [v LCD_out@number number `uc  1 a 1 wreg ]
 [v LCD_out@number number `uc  1 a 1 wreg ]
-"23
+"22
 [v LCD_out@number number `uc  1 a 1 1 ]
-"30
+"29
 } 0
-"3
+"4
 [v _E_TOG E_TOG `(v  1 e 1 0 ]
 {
 "9

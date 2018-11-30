@@ -29,21 +29,12 @@ void main(void) {
     LCD_init();
     init_capture();
 
-    struct Sensor_ir values;
+    struct Sensor_ir Values;
     
     while (1) {
-        read_IR(&values);
+        read_IR(&Values);
   
-        print_IR(&values);
-        char buf[16];
-        LCD_send(0b00000001, 0); //clear screen 
-        LCD_line(1);
-        sprintf(buf, "Left: %u", values.left);
-        LCD_string(buf);
-        LCD_line(2);
-        sprintf(buf, "Right: %u", values.right);
-        LCD_string(buf);
-
+        print_IR(&Values);
 
 
         //moveMotor(&motorL, &motorR,40,40,1,0);
