@@ -644,48 +644,48 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _init_capture ]
 [f ]
-"41
-[; ;ir.c: 41:     LATA = 0;
+"30
+[; ;ir.c: 30:     LATA = 0;
 [e = _LATA -> -> 0 `i `uc ]
-"42
-[; ;ir.c: 42:     TRISA = 0b00001100;
+"31
+[; ;ir.c: 31:     TRISA = 0b00001100;
 [e = _TRISA -> -> 12 `i `uc ]
-"43
-[; ;ir.c: 43:     CAP1CON = 0b01000110;
+"32
+[; ;ir.c: 32:     CAP1CON = 0b01000110;
 [e = _CAP1CON -> -> 70 `i `uc ]
-"44
-[; ;ir.c: 44:     CAP2CON = 0b01000110;
+"33
+[; ;ir.c: 33:     CAP2CON = 0b01000110;
 [e = _CAP2CON -> -> 70 `i `uc ]
-"45
-[; ;ir.c: 45:     T5CON = 0b00001001;
+"34
+[; ;ir.c: 34:     T5CON = 0b00001001;
 [e = _T5CON -> -> 9 `i `uc ]
-"46
-[; ;ir.c: 46:     DFLTCON = 0b00011000;
+"35
+[; ;ir.c: 35:     DFLTCON = 0b00011000;
 [e = _DFLTCON -> -> 24 `i `uc ]
-"47
-[; ;ir.c: 47: }
+"36
+[; ;ir.c: 36: }
 [e :UE 316 ]
 }
-"52
-[; ;ir.c: 52: void read_IR(struct Sensor_ir *Values)
+"41
+[; ;ir.c: 41: void read_IR(struct Sensor_ir *Values)
 [v _read_IR `(v ~T0 @X0 1 ef1`*S314 ]
-"53
-[; ;ir.c: 53: {
+"42
+[; ;ir.c: 42: {
 {
 [e :U _read_IR ]
-"52
-[; ;ir.c: 52: void read_IR(struct Sensor_ir *Values)
+"41
+[; ;ir.c: 41: void read_IR(struct Sensor_ir *Values)
 [v _Values `*S314 ~T0 @X0 1 r1 ]
-"53
-[; ;ir.c: 53: {
+"42
+[; ;ir.c: 42: {
 [f ]
-"54
-[; ;ir.c: 54:     Values->left = ((CAP2BUFH << 8) | (CAP2BUFL))/1;
+"43
+[; ;ir.c: 43:     Values->left = ((CAP2BUFH << 8) | (CAP2BUFL))/1;
 [e = . *U _Values 0 -> / | << -> _CAP2BUFH `i -> 8 `i -> _CAP2BUFL `i -> 1 `i `ui ]
-"55
-[; ;ir.c: 55:     Values->right = ((CAP1BUFH << 8) | (CAP1BUFL))/1;
+"44
+[; ;ir.c: 44:     Values->right = ((CAP1BUFH << 8) | (CAP1BUFL))/1;
 [e = . *U _Values 1 -> / | << -> _CAP1BUFH `i -> 8 `i -> _CAP1BUFL `i -> 1 `i `ui ]
-"56
-[; ;ir.c: 56: }
+"45
+[; ;ir.c: 45: }
 [e :UE 317 ]
 }

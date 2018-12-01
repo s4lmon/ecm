@@ -5300,29 +5300,73 @@ struct Motor {
     int period;
 };
 # 9 "main.c" 2
-# 21 "main.c"
+
+# 1 "./rfid.h" 1
+# 24 "./rfid.h"
+void init_RFID(void);
+void interrupt_EUSART(void);
+
+void print_RFID(char *pa,char *dis);
+void check_sum(char *str, char *arr_check, int *bit16, int btc);
+# 10 "main.c" 2
+
+
+
+
+volatile char card_read;
+char string_rfid[17];
+
+
+void __attribute__((picinterrupt("high_priority"))) InterruptHandlerHigh() {
+
+
+    static char count = 0;
+    char rx_char;
+
+    if (PIR1bits.RCIF) {
+        rx_char = RCREG;
+        if (rx_char == 0x02) {
+            count = 0;
+        }
+        if (rx_char == 0x03) {
+            card_read = 1;
+        }
+        string_rfid[count] = rx_char;
+        count++;
+    }
+
+}
+
 void main(void) {
     ANSEL0 = 0;
     ANSEL1 = 0;
     OSCCON = 0x72;
     while (!OSCCONbits.IOFS);
-
-
-
+    card_read = 0;
     LCD_init();
-    init_capture();
 
+
+    init_capture();
+    init_RFID();
+
+    interrupt_EUSART();
     struct Sensor_ir Values;
 
     while (1) {
-        read_IR(&Values);
-
-        print_IR(&Values);
 
 
 
-        _delay((unsigned long)((500)*(8000000/4000.0)));
+
+        while (card_read == 0) {
+                        read_IR(&Values);
+                        print_IR(&Values);
+        }
+
+
+        if (card_read == 1) {
+
+            print_RFID(&string_rfid[0], &string_rfid[0]);
+            _delay((unsigned long)((10)*(8000000/4000.0)));
+        }
     }
-
-
 }

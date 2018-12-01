@@ -27,17 +27,6 @@ void init_TIMER5(void)
 void init_capture(void)
 {
 
-//    LATA = 0;
-//    TRISA = 0b00001100;
-//    /*set up capture pins 1 and 2 from PIC*/
-//    CAP1CONbits.CAP1REN = 1;
-//    CAP1CONbits.CAP1M = 0b0110;
-//    CAP1CONbits.CAP1REN = 1;
-//    CAP1CONbits.CAP1M = 0b0110;
-//    ANSEL0 = 0; /*configuring digital input */
-//    ANSEL1 = 0;
-//    DFLTCON = 0b00011000;
-    
     LATA = 0; //Tensure all pins have same value initially
     TRISA = 0b00001100; //Turn on CAP1 (RA2) and CAP2 (RA3) Pins.
     CAP1CON = 0b01000110; //Time base enabled, measure PWM falling to rising 

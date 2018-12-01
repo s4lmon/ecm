@@ -5166,7 +5166,7 @@ void init_TIMER5(void)
 
 void init_capture(void)
 {
-# 41 "ir.c"
+
     LATA = 0;
     TRISA = 0b00001100;
     CAP1CON = 0b01000110;

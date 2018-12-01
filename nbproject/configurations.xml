@@ -25,6 +25,8 @@
     <itemPath>ir.c</itemPath>
     <itemPath>motor.h</itemPath>
     <itemPath>motor.c</itemPath>
+    <itemPath>rfid.h</itemPath>
+    <itemPath>rfid.c</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

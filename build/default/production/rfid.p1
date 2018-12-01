@@ -1,88 +1,164 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[t ~ __interrupt . k ]
-[t T36 __interrupt high_priority ]
-"3617 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3617:     struct {
-[s S132 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S132 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
-"3626
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3626:     struct {
-[s S133 :4 `uc 1 :1 `uc 1 ]
-[n S133 . . TBIF ]
-"3630
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3630:     struct {
-[s S134 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S134 . . TX1IF RC1IF ]
-"3616
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3616: typedef union {
-[u S131 `S132 1 `S133 1 `S134 1 ]
-[n S131 . . . . ]
-"3636
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3636: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
-[v _PIR1bits `VS131 ~T0 @X0 0 e@3998 ]
+"2717 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 2717: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"4863
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4863: extern volatile unsigned char SPBRG __attribute__((address(0xFAF)));
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"4875
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4875: extern volatile unsigned char SPBRGH __attribute__((address(0xFB0)));
+[v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
+"4204
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4204:     struct {
+[s S157 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S157 . ABDEN WUE . BRG16 TXCKP RXDTP RCIDL ABDOVF ]
+"4214
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4214:     struct {
+[s S158 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S158 . . SCKP . RCMT ]
+"4220
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4220:     struct {
+[s S159 :5 `uc 1 :1 `uc 1 ]
+[n S159 . . RXCKP ]
+"4224
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4224:     struct {
+[s S160 :1 `uc 1 :1 `uc 1 ]
+[n S160 . . W4E ]
+"4203
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4203: typedef union {
+[u S156 `S157 1 `S158 1 `S159 1 `S160 1 ]
+[n S156 . . . . . ]
+"4229
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4229: extern volatile BAUDCONbits_t BAUDCONbits __attribute__((address(0xFAA)));
+[v _BAUDCONbits `VS156 ~T0 @X0 0 e@4010 ]
+"4594
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4594:     struct {
+[s S181 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S181 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"4604
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4604:     struct {
+[s S182 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S182 . TX9D1 TRMT1 BRGH1 SENDB1 SYNC1 TXEN1 TX91 CSRC1 ]
+"4614
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4614:     struct {
+[s S183 :6 `uc 1 :1 `uc 1 ]
+[n S183 . . TX8_9 ]
+"4618
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4618:     struct {
+[s S184 :1 `uc 1 ]
+[n S184 . TXD8 ]
+"4593
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4593: typedef union {
+[u S180 `S181 1 `S182 1 `S183 1 `S184 1 ]
+[n S180 . . . . . ]
+"4622
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4622: extern volatile TXSTAbits_t TXSTAbits __attribute__((address(0xFAC)));
+[v _TXSTAbits `VS180 ~T0 @X0 0 e@4012 ]
+"4384
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4384:     struct {
+[s S167 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S167 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"4394
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4394:     struct {
+[s S168 :3 `uc 1 :1 `uc 1 ]
+[n S168 . . ADEN ]
+"4398
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4398:     struct {
+[s S169 :5 `uc 1 :1 `uc 1 ]
+[n S169 . . SRENA ]
+"4402
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4402:     struct {
+[s S170 :6 `uc 1 :1 `uc 1 ]
+[n S170 . . RC8_9 ]
+"4406
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4406:     struct {
+[s S171 :6 `uc 1 :1 `uc 1 ]
+[n S171 . . RC9 ]
+"4410
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4410:     struct {
+[s S172 :1 `uc 1 ]
+[n S172 . RCD8 ]
+"4383
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4383: typedef union {
+[u S166 `S167 1 `S168 1 `S169 1 `S170 1 `S171 1 `S172 1 ]
+[n S166 . . . . . . . ]
+"4414
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4414: extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0xFAB)));
+[v _RCSTAbits `VS166 ~T0 @X0 0 e@4011 ]
 "4851
 [; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4851: extern volatile unsigned char RCREG __attribute__((address(0xFAE)));
 [v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-[p mainexit ]
-"5152
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 5152: extern volatile unsigned char ANSEL0 __attribute__((address(0xFB8)));
-[v _ANSEL0 `Vuc ~T0 @X0 0 e@4024 ]
-"5214
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 5214: extern volatile unsigned char ANSEL1 __attribute__((address(0xFB9)));
-[v _ANSEL1 `Vuc ~T0 @X0 0 e@4025 ]
-"6702
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6702: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
-[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"6708
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6708:     struct {
-[s S293 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S293 . SCS IOFS OSTS IRCF IDLEN ]
-"6715
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6715:     struct {
-[s S294 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S294 . SCS0 SCS1 . IRCF0 IRCF1 IRCF2 ]
-"6723
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6723:     struct {
-[s S295 :2 `uc 1 :1 `uc 1 ]
-[n S295 . . FLTS ]
-"6707
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6707: typedef union {
-[u S292 `S293 1 `S294 1 `S295 1 ]
-[n S292 . . . . ]
-"6728
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6728: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0xFD3)));
-[v _OSCCONbits `VS292 ~T0 @X0 0 e@4051 ]
-"16 ./lcd.h
-[; ;./lcd.h: 16: void LCD_init(void);
-[v _LCD_init `(v ~T0 @X0 0 ef ]
-"16 ./ir.h
-[; ;./ir.h: 16: void init_capture(void);
-[v _init_capture `(v ~T0 @X0 0 ef ]
-"24 ./rfid.h
-[; ;./rfid.h: 24: void init_RFID(void);
-[v _init_RFID `(v ~T0 @X0 0 ef ]
-"25
-[; ;./rfid.h: 25: void interrupt_EUSART(void);
-[v _interrupt_EUSART `(v ~T0 @X0 0 ef ]
-"9 ./ir.h
-[; ;./ir.h: 9: struct Sensor_ir {
-[s S316 `ui 1 `ui 1 ]
-[n S316 Sensor_ir left right ]
+"3537
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3537:     struct {
+[s S126 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S126 . TMR1IE TMR2IE CCP1IE SSPIE TXIE RCIE ADIE ]
+"3546
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3546:     struct {
+[s S127 :4 `uc 1 :1 `uc 1 ]
+[n S127 . . TBIE ]
+"3550
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3550:     struct {
+[s S128 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S128 . . TX1IE RC1IE ]
+"3536
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3536: typedef union {
+[u S125 `S126 1 `S127 1 `S128 1 ]
+[n S125 . . . . ]
+"3556
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3556: extern volatile PIE1bits_t PIE1bits __attribute__((address(0xF9D)));
+[v _PIE1bits `VS125 ~T0 @X0 0 e@3997 ]
+"7313
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7313:     struct {
+[s S308 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S308 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"7323
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7323:     struct {
+[s S309 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S309 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"7333
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7333:     struct {
+[s S310 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S310 . . GIEL GIEH ]
+"7312
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7312: typedef union {
+[u S307 `S308 1 `S309 1 `S310 1 ]
+[n S307 . . . . ]
+"7339
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7339: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS307 ~T0 @X0 0 e@4082 ]
+"7144
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7144:     struct {
+[s S301 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S301 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
+"7154
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7154:     struct {
+[s S302 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S302 . INT1F INT2F . INT1E INT2E . INT1P INT2P ]
+"7143
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7143: typedef union {
+[u S300 `S301 1 `S302 1 ]
+[n S300 . . . ]
+"7165
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7165: extern volatile INTCON3bits_t INTCON3bits __attribute__((address(0xFF0)));
+[v _INTCON3bits `VS300 ~T0 @X0 0 e@4080 ]
+"19 ./lcd.h
+[; ;./lcd.h: 19: void LCD_clear(void);
+[v _LCD_clear `(v ~T0 @X0 0 ef ]
 "17
-[; ;./ir.h: 17: void read_IR(struct Sensor_ir *values);
-[v _read_IR `(v ~T0 @X0 0 ef1`*S316 ]
-"20 ./lcd.h
-[; ;./lcd.h: 20: void print_IR(struct Sensor_ir *Values);
-[v _print_IR `(v ~T0 @X0 0 ef1`*S316 ]
-"27 ./rfid.h
-[; ;./rfid.h: 27: void print_RFID(char *pa,char *dis);
-[v _print_RFID `(v ~T0 @X0 0 ef2`*uc`*uc ]
-[v F3079 `(v ~T0 @X0 1 tf1`ul ]
+[; ;./lcd.h: 17: void LCD_line (char line);
+[v _LCD_line `(v ~T0 @X0 0 ef1`uc ]
+"15
+[; ;./lcd.h: 15: void LCD_send(unsigned char Byte, char type);
+[v _LCD_send `(v ~T0 @X0 0 ef2`uc`uc ]
+[v F2761 `(v ~T0 @X0 1 tf1`ul ]
 "183 /Applications/microchip/xc8/v2.00/pic/include/pic18.h
-[v __delay `JF3079 ~T0 @X0 0 e ]
+[v __delay `JF2761 ~T0 @X0 0 e ]
 [p i __delay ]
-"1 main.c
-[p x OSC = IRCIO  LVP = OFF  MCLRE = OFF ]
+"115 /Applications/microchip/xc8/v2.00/pic/include/c99/stdio.h
+[v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
+"18 ./lcd.h
+[; ;./lcd.h: 18: void LCD_string(char *string);
+[v _LCD_string `(v ~T0 @X0 0 ef1`*uc ]
 "54 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
 [; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 54: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -623,156 +699,254 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7616
 [; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7616: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"14 main.c
-[; ;main.c: 14: volatile char card_read;
-[v _card_read `Vuc ~T0 @X0 1 e ]
-"15
-[; ;main.c: 15: char string_rfid[17];
-[v _string_rfid `uc ~T0 @X0 -> 17 `i e ]
-[v $root$_InterruptHandlerHigh `(v ~T0 @X0 0 e ]
-"18
-[; ;main.c: 18: void __attribute__((picinterrupt("high_priority"))) InterruptHandlerHigh() {
-[v _InterruptHandlerHigh `(v ~T36 @X0 1 ef ]
+"3 rfid.c
+[; ;rfid.c: 3: void init_RFID(void) {
+[v _init_RFID `(v ~T0 @X0 1 ef ]
 {
-[e :U _InterruptHandlerHigh ]
+[e :U _init_RFID ]
 [f ]
+"4
+[; ;rfid.c: 4:     TRISC = TRISC | 0b11000000;
+[e = _TRISC -> | -> _TRISC `i -> 192 `i `uc ]
+"5
+[; ;rfid.c: 5:     SPBRG = 204;
+[e = _SPBRG -> -> 204 `i `uc ]
+"6
+[; ;rfid.c: 6:     SPBRGH = 0;
+[e = _SPBRGH -> -> 0 `i `uc ]
+"7
+[; ;rfid.c: 7:     BAUDCONbits.BRG16 = 1;
+[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
+"8
+[; ;rfid.c: 8:     TXSTAbits.BRGH = 1;
+[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
+"9
+[; ;rfid.c: 9:     RCSTAbits.CREN = 1;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+"10
+[; ;rfid.c: 10:     RCSTAbits.SPEN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+"11
+[; ;rfid.c: 11:     TXSTAbits.TXEN = 1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+"12
+[; ;rfid.c: 12: }
+[e :UE 317 ]
+}
+"14
+[; ;rfid.c: 14: void interrupt_EUSART(void) {
+[v _interrupt_EUSART `(v ~T0 @X0 1 ef ]
+{
+[e :U _interrupt_EUSART ]
+[f ]
+"15
+[; ;rfid.c: 15:     RCREG;
+[e _RCREG ]
+"16
+[; ;rfid.c: 16:     RCREG;
+[e _RCREG ]
+"17
+[; ;rfid.c: 17:     RCREG;
+[e _RCREG ]
+"18
+[; ;rfid.c: 18:     PIE1bits.RCIE = 1;
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+"19
+[; ;rfid.c: 19:     INTCONbits.GIEL = 1;
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+"20
+[; ;rfid.c: 20:     INTCONbits.GIEH = 1;
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
 "21
-[; ;main.c: 21:     static char count = 0;
-[v F3128 `uc ~T0 @X0 1 s count ]
-[i F3128
--> -> 0 `i `uc
-]
+[; ;rfid.c: 21:     INTCON3bits.INT2IE = 1;
+[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
 "22
-[; ;main.c: 22:     char rx_char;
-[v _rx_char `uc ~T0 @X0 1 a ]
-"24
-[; ;main.c: 24:     if (PIR1bits.RCIF) {
-[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 319  ]
-{
+[; ;rfid.c: 22: }
+[e :UE 318 ]
+}
 "25
-[; ;main.c: 25:         rx_char = RCREG;
-[e = _rx_char -> _RCREG `uc ]
-"26
-[; ;main.c: 26:         if (rx_char == 0x02) {
-[e $ ! == -> _rx_char `i -> 2 `i 320  ]
+[; ;rfid.c: 25: void print_RFID(char *pa, char *dis) {
+[v _print_RFID `(v ~T0 @X0 1 ef2`*uc`*uc ]
 {
+[e :U _print_RFID ]
+[v _pa `*uc ~T0 @X0 1 r1 ]
+[v _dis `*uc ~T0 @X0 1 r2 ]
+[f ]
 "27
-[; ;main.c: 27:             count = 0;
-[e = F3128 -> -> 0 `i `uc ]
+[; ;rfid.c: 27:     LCD_clear();
+[e ( _LCD_clear ..  ]
 "28
-[; ;main.c: 28:         }
+[; ;rfid.c: 28:     LCD_line(1);
+[e ( _LCD_line (1 -> -> 1 `i `uc ]
+"29
+[; ;rfid.c: 29:     while (*pa != 0x03) {
+[e $U 320  ]
+[e :U 321 ]
+{
+"30
+[; ;rfid.c: 30:         pa++;
+[e ++ _pa * -> -> 1 `i `x -> -> # *U _pa `i `x ]
+"31
+[; ;rfid.c: 31:     }
 }
 [e :U 320 ]
 "29
-[; ;main.c: 29:         if (rx_char == 0x03) {
-[e $ ! == -> _rx_char `i -> 3 `i 321  ]
-{
-"30
-[; ;main.c: 30:             card_read = 1;
-[e = _card_read -> -> 1 `i `uc ]
-"31
-[; ;main.c: 31:         }
-}
-[e :U 321 ]
-"32
-[; ;main.c: 32:         string_rfid[count] = rx_char;
-[e = *U + &U _string_rfid * -> F3128 `ux -> -> # *U &U _string_rfid `ui `ux _rx_char ]
-"33
-[; ;main.c: 33:         count++;
-[e ++ F3128 -> -> 1 `i `uc ]
+[; ;rfid.c: 29:     while (*pa != 0x03) {
+[e $ != -> *U _pa `i -> 3 `i 321  ]
+[e :U 322 ]
 "34
-[; ;main.c: 34:     }
-}
-[e :U 319 ]
-"36
-[; ;main.c: 36: }
-[e :UE 318 ]
-}
-[v $root$_main `(v ~T0 @X0 0 e ]
-"38
-[; ;main.c: 38: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"39
-[; ;main.c: 39:     ANSEL0 = 0;
-[e = _ANSEL0 -> -> 0 `i `uc ]
-"40
-[; ;main.c: 40:     ANSEL1 = 0;
-[e = _ANSEL1 -> -> 0 `i `uc ]
-"41
-[; ;main.c: 41:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
-"42
-[; ;main.c: 42:     while (!OSCCONbits.IOFS);
+[; ;rfid.c: 34:     while ((dis + 1) < (pa - 2)) {
 [e $U 323  ]
 [e :U 324 ]
+{
+"36
+[; ;rfid.c: 36:         LCD_send(*(dis + 1), 1);
+[e ( _LCD_send (2 , -> *U + _dis * -> -> 1 `i `x -> -> # *U _dis `i `x `uc -> -> 1 `i `uc ]
+"37
+[; ;rfid.c: 37:         _delay((unsigned long)((50)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"39
+[; ;rfid.c: 39:         dis++;
+[e ++ _dis * -> -> 1 `i `x -> -> # *U _dis `i `x ]
+"40
+[; ;rfid.c: 40:     }
+}
 [e :U 323 ]
-[e $ ! != -> . . _OSCCONbits 0 1 `i -> 0 `i 324  ]
+"34
+[; ;rfid.c: 34:     while ((dis + 1) < (pa - 2)) {
+[e $ < + _dis * -> -> 1 `i `x -> -> # *U _dis `i `x - _pa * -> -> 2 `i `x -> -> # *U _pa `i `x 324  ]
 [e :U 325 ]
-"43
-[; ;main.c: 43:     card_read = 0;
-[e = _card_read -> -> 0 `i `uc ]
-"44
-[; ;main.c: 44:     LCD_init();
-[e ( _LCD_init ..  ]
+"41
+[; ;rfid.c: 41:     LCD_line(2);
+[e ( _LCD_line (1 -> -> 2 `i `uc ]
+"42
+[; ;rfid.c: 42: }
+[e :UE 319 ]
+}
 "47
-[; ;main.c: 47:     init_capture();
-[e ( _init_capture ..  ]
-"48
-[; ;main.c: 48:     init_RFID();
-[e ( _init_RFID ..  ]
+[; ;rfid.c: 47: void check_sum(char *str, char *arr_check, int *bit16, int btc) {
+[v _check_sum `(v ~T0 @X0 1 ef4`*uc`*uc`*i`i ]
+{
+[e :U _check_sum ]
+[v _str `*uc ~T0 @X0 1 r1 ]
+[v _arr_check `*uc ~T0 @X0 1 r2 ]
+[v _bit16 `*i ~T0 @X0 1 r3 ]
+[v _btc `i ~T0 @X0 1 r4 ]
+[f ]
 "50
-[; ;main.c: 50:     interrupt_EUSART();
-[e ( _interrupt_EUSART ..  ]
+[; ;rfid.c: 50:     int i = 0;
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
 "51
-[; ;main.c: 51:     struct Sensor_ir Values;
-[v _Values `S316 ~T0 @X0 1 a ]
-"53
-[; ;main.c: 53:     while (1) {
-[e :U 327 ]
-{
-"58
-[; ;main.c: 58:         while (card_read == 0) {
-[e $U 329  ]
-[e :U 330 ]
-{
-"59
-[; ;main.c: 59:                         read_IR(&Values);
-[e ( _read_IR (1 &U _Values ]
-"60
-[; ;main.c: 60:                         print_IR(&Values);
-[e ( _print_IR (1 &U _Values ]
-"61
-[; ;main.c: 61:         }
-}
-[e :U 329 ]
-"58
-[; ;main.c: 58:         while (card_read == 0) {
-[e $ == -> _card_read `i -> 0 `i 330  ]
-[e :U 331 ]
-"64
-[; ;main.c: 64:         if (card_read == 1) {
-[e $ ! == -> _card_read `i -> 1 `i 332  ]
-{
-"66
-[; ;main.c: 66:             print_RFID(&string_rfid[0], &string_rfid[0]);
-[e ( _print_RFID (2 , &U *U + &U _string_rfid * -> -> -> 0 `i `ui `ux -> -> # *U &U _string_rfid `ui `ux &U *U + &U _string_rfid * -> -> -> 0 `i `ui `ux -> -> # *U &U _string_rfid `ui `ux ]
-"67
-[; ;main.c: 67:             _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"68
-[; ;main.c: 68:         }
-}
-[e :U 332 ]
-"69
-[; ;main.c: 69:     }
-}
-[e :U 326 ]
+[; ;rfid.c: 51:     while (i < 12) {
 [e $U 327  ]
 [e :U 328 ]
-"70
-[; ;main.c: 70: }
-[e :UE 322 ]
+{
+"52
+[; ;rfid.c: 52:         if ((*(str + 1) >> 6) == 1) {
+[e $ ! == >> -> *U + _str * -> -> 1 `i `x -> -> # *U _str `i `x `i -> 6 `i -> 1 `i 330  ]
+{
+"53
+[; ;rfid.c: 53:             *(arr_check) = *(str + 1) - 55;
+[e = *U _arr_check -> - -> *U + _str * -> -> 1 `i `x -> -> # *U _str `i `x `i -> 55 `i `uc ]
+"54
+[; ;rfid.c: 54:             str++;
+[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
+"55
+[; ;rfid.c: 55:             arr_check++;
+[e ++ _arr_check * -> -> 1 `i `x -> -> # *U _arr_check `i `x ]
+"56
+[; ;rfid.c: 56:             i++;
+[e ++ _i -> 1 `i ]
+"57
+[; ;rfid.c: 57:         } else {
 }
+[e $U 331  ]
+[e :U 330 ]
+{
+"58
+[; ;rfid.c: 58:             *(arr_check) = *(str + 1) - 48;
+[e = *U _arr_check -> - -> *U + _str * -> -> 1 `i `x -> -> # *U _str `i `x `i -> 48 `i `uc ]
+"59
+[; ;rfid.c: 59:             str++;
+[e ++ _str * -> -> 1 `i `x -> -> # *U _str `i `x ]
+"60
+[; ;rfid.c: 60:             arr_check++;
+[e ++ _arr_check * -> -> 1 `i `x -> -> # *U _arr_check `i `x ]
+"61
+[; ;rfid.c: 61:             i++;
+[e ++ _i -> 1 `i ]
+"62
+[; ;rfid.c: 62:         }
+}
+[e :U 331 ]
+"63
+[; ;rfid.c: 63:     }
+}
+[e :U 327 ]
+"51
+[; ;rfid.c: 51:     while (i < 12) {
+[e $ < _i -> 12 `i 328  ]
+[e :U 329 ]
+"65
+[; ;rfid.c: 65:     for (char j = 0; j < 6; j++) {
+{
+[v _j `uc ~T0 @X0 1 a ]
+[e = _j -> -> 0 `i `uc ]
+[e $ < -> _j `i -> 6 `i 332  ]
+[e $U 333  ]
+[e :U 332 ]
+{
+"66
+[; ;rfid.c: 66:         *bit16 = (*(arr_check + 2 * j - 12) << 8) | *(arr_check + 2 * j + 1 - 12);
+[e = *U _bit16 | << -> *U - + _arr_check * -> * -> 2 `i -> _j `i `x -> -> # *U _arr_check `i `x * -> -> 12 `i `x -> -> # *U + _arr_check * -> * -> 2 `i -> _j `i `x -> -> # *U _arr_check `i `x `i `x `i -> 8 `i -> *U - + + _arr_check * -> * -> 2 `i -> _j `i `x -> -> # *U _arr_check `i `x * -> -> 1 `i `x -> -> # *U + _arr_check * -> * -> 2 `i -> _j `i `x -> -> # *U _arr_check `i `x `i `x * -> -> 12 `i `x -> -> # *U + + _arr_check * -> * -> 2 `i -> _j `i `x -> -> # *U _arr_check `i `x * -> -> 1 `i `x -> -> # *U + _arr_check * -> * -> 2 `i -> _j `i `x -> -> # *U _arr_check `i `x `i `x `i `x `i ]
+"67
+[; ;rfid.c: 67:         bit16++;
+[e ++ _bit16 * -> -> 1 `i `x -> -> # *U _bit16 `i `x ]
+"68
+[; ;rfid.c: 68:     }
+}
+[e ++ _j -> -> 1 `i `uc ]
+[e $ < -> _j `i -> 6 `i 332  ]
+[e :U 333 ]
+}
+"70
+[; ;rfid.c: 70:     int xor_value = ((*(bit16 - 6))^(*(bit16 - 5))^(*(bit16 - 4))^(*(bit16 - 3))^(*(bit16 - 2)));
+[v _xor_value `i ~T0 @X0 1 a ]
+[e = _xor_value ^ ^ ^ ^ *U - _bit16 * -> -> 6 `i `x -> -> # *U _bit16 `i `x *U - _bit16 * -> -> 5 `i `x -> -> # *U _bit16 `i `x *U - _bit16 * -> -> 4 `i `x -> -> # *U _bit16 `i `x *U - _bit16 * -> -> 3 `i `x -> -> # *U _bit16 `i `x *U - _bit16 * -> -> 2 `i `x -> -> # *U _bit16 `i `x ]
+"72
+[; ;rfid.c: 72:     char buf_cs[16];
+[v _buf_cs `uc ~T0 @X0 -> 16 `i a ]
+"73
+[; ;rfid.c: 73:     if (xor_value == *(bit16 - 1)) {
+[e $ ! == _xor_value *U - _bit16 * -> -> 1 `i `x -> -> # *U _bit16 `i `x 335  ]
+{
+"74
+[; ;rfid.c: 74:         sprintf(buf_cs, "CS CORRECT %d", btc);
+[e ( _sprintf (1 , (. , &U _buf_cs :s 1C _btc ]
+"75
+[; ;rfid.c: 75:         LCD_string(buf_cs);
+[e ( _LCD_string (1 &U _buf_cs ]
+"76
+[; ;rfid.c: 76:     } else {
+}
+[e $U 336  ]
+[e :U 335 ]
+{
+"77
+[; ;rfid.c: 77:         sprintf(buf_cs, "CS INCORRECT %d", btc);
+[e ( _sprintf (1 , (. , &U _buf_cs :s 2C _btc ]
+"78
+[; ;rfid.c: 78:         LCD_string(buf_cs);
+[e ( _LCD_string (1 &U _buf_cs ]
+"79
+[; ;rfid.c: 79:     }
+}
+[e :U 336 ]
+"81
+[; ;rfid.c: 81: }
+[e :UE 326 ]
+}
+[p f _sprintf 8388736 ]
+[a 2C 67 83 32 73 78 67 79 82 82 69 67 84 32 37 100 0 ]
+[a 1C 67 83 32 67 79 82 82 69 67 84 32 37 100 0 ]
