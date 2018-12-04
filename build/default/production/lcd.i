@@ -5278,6 +5278,8 @@ char *tempnam(const char *, const char *);
 struct Sensor_ir {
     unsigned int left;
     unsigned int right;
+    unsigned int left_prev;
+    unsigned int right_prev;
 
 };
 

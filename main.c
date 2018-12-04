@@ -4,6 +4,7 @@
 #include <xc.h>
 #define _XTAL_FREQ 8000000
 #define PWMPERIOD 199
+#define TIME 100
 #include "lcd.h"
 #include "ir.h"
 #include "motor.h"
@@ -32,39 +33,125 @@ void __interrupt(high_priority) InterruptHandlerHigh() {
         string_rfid[count] = rx_char; //store the character read by the RFID tag into a character string
         count++;
     }
+    if (INTCON3bits.INT2IF) { //external interrupt flag
+        if (PORTCbits.RC5 == 1) { //Ask 4 times for the RC5 input to prevent button false positives
+            if (PORTCbits.RC5 == 1) {
+                if (PORTCbits.RC5 == 1) {
+                    if (PORTCbits.RC5 == 1) {
+                        card_read = 0; //re-start the searching routine
+                    }
+                }
+            }
+        }
+        INTCON3bits.INT2IF = 0; //clear the interrupt flag
+    }
 
 }
 
-void main(void) {
+int main(void) {
     ANSEL0 = 0; //Override start up analogue mode to digital instead
     ANSEL1 = 0;
     OSCCON = 0x72;
     while (!OSCCONbits.IOFS);
-    card_read = 0;
+
     LCD_init();
 
-
+    init_TIMER5();
+    initPWM();
     init_capture();
     init_RFID();
 
+
+
     interrupt_EUSART();
     struct Sensor_ir Values;
+    struct Motor mL, mR;
+    int PWMcycle = 199;
+    mL.power = 0; //zero power to start
+    mL.direction = 1; //set default motor direction, forward
+    mL.duty_low = (unsigned char *) (&PDC0L); //store address of PWM duty low byte
+    mL.duty_high = (unsigned char *) (&PDC0H); //store address of PWM duty high byte
+    mL.dir_pin = 0; //pin RB0/PWM0 controls direction
+    mL.period = PWMcycle; //store PWMperiod for motor
+
+    //same for motorR but different PWM registers and direction pin
+    mR.power = 0;
+    mR.direction = 1;
+    mR.duty_low = (unsigned char *) (&PDC1L);
+    mR.duty_high = (unsigned char *) (&PDC1H);
+    mR.dir_pin = 2; //pin RB2/PWM0 controls direction
+    mR.period = PWMcycle;
 
     while (1) {
 
-
+        int direction = 0;
         //Searching for IR emitter 
 
         while (card_read == 0) { //Card read is set to 0 by the interrupt set by pressing the button
-                        read_IR(&Values);
-                        print_IR(&Values);
+            read_IR(&Values);
+            //            Values.left = measureIRLeft();
+            //            Values.right = measureIRRight();
+
+            print_IR(&Values);
+            int threshold = 50;
+            int diff = Values.left - Values.right;
+            if (Values.left > 256 | Values.right > 256) {
+                threshold = 50;
+            } else {
+                threshold = 20;
+            }
+
+            if (diff < -threshold) {
+                //if (direction != 1) {
+                stop(&mL, &mR);
+                turnLeft(&mL, &mR);
+                __delay_ms(TIME);
+                //}
+
+
+                direction = 1;
+
+            } else if (diff > threshold) {
+                //if (direction != -1) {
+                stop(&mL, &mR);
+                turnRight(&mL, &mR);
+                __delay_ms(TIME);
+                //}
+
+                direction = -1;
+            } else { //either forwards or signal lost
+                if ((Values.left > 100) && (Values.right > 100)) {
+                    if (direction != 0) {
+                        stop(&mL, &mR);
+                        forwards(&mL, &mR);
+                        //__delay_ms(TIME);
+                    }
+
+                    direction = 0;
+                } else {
+                    if (direction != 1) {
+
+                        turnRightSlow(&mL, &mR);
+                        stop(&mL, &mR);
+                        direction = -1;
+                        __delay_ms(TIME);
+                    }
+
+
+                }
+            }
+            //stop(&mL, &mR);
+            //            __delay_ms(100);
         }
+
+
 
 
         if (card_read == 1) { //the interrupt for the RFID tag sets card_read to 1 when the card is read
 
             print_RFID(&string_rfid[0], &string_rfid[0]); //sends the significant characters read from the RFID to the LCD
             __delay_ms(10);
+            return 0;
         }
     }
 }

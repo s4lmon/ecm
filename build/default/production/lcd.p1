@@ -104,8 +104,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
 "9 ./ir.h
 [; ;./ir.h: 9: struct Sensor_ir {
-[s S316 `ui 1 `ui 1 ]
-[n S316 Sensor_ir left right ]
+[s S316 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S316 Sensor_ir left right left_prev right_prev ]
 "115 /Applications/microchip/xc8/v2.00/pic/include/c99/stdio.h
 [v _sprintf `(i ~T0 @X0 0 e1v`*uc`*Cuc ]
 "54 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h

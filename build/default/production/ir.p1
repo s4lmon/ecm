@@ -46,8 +46,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _DFLTCON `Vuc ~T0 @X0 0 e@3936 ]
 "9 ./ir.h
 [; ;./ir.h: 9: struct Sensor_ir {
-[s S314 `ui 1 `ui 1 ]
-[n S314 Sensor_ir left right ]
+[s S314 `ui 1 `ui 1 `ui 1 `ui 1 ]
+[n S314 Sensor_ir left right left_prev right_prev ]
 "329 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
 [; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 329: extern volatile unsigned char CAP2BUFH __attribute__((address(0xF67)));
 [v _CAP2BUFH `Vuc ~T0 @X0 0 e@3943 ]
@@ -60,6 +60,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "341
 [; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 341: extern volatile unsigned char CAP1BUFL __attribute__((address(0xF68)));
 [v _CAP1BUFL `Vuc ~T0 @X0 0 e@3944 ]
+[v F2761 `(v ~T0 @X0 1 tf1`ul ]
+"183 /Applications/microchip/xc8/v2.00/pic/include/pic18.h
+[v __delay `JF2761 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
 [; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 54: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -600,92 +604,91 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7616
 [; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7616: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"7 ir.c
-[; ;ir.c: 7: void init_TIMER5(void)
+"6 ir.c
+[; ;ir.c: 6: void init_TIMER5(void) {
 [v _init_TIMER5 `(v ~T0 @X0 1 ef ]
-"8
-[; ;ir.c: 8: {
 {
 [e :U _init_TIMER5 ]
 [f ]
-"13
-[; ;ir.c: 13:     T5CON = 0;
+"11
+[; ;ir.c: 11:     T5CON = 0;
 [e = _T5CON -> -> 0 `i `uc ]
-"14
-[; ;ir.c: 14:     T5CONbits.T5SEN = 0;
+"12
+[; ;ir.c: 12:     T5CONbits.T5SEN = 0;
 [e = . . _T5CONbits 2 6 -> -> 0 `i `uc ]
-"15
-[; ;ir.c: 15:     T5CONbits.RESEN = 0;
+"13
+[; ;ir.c: 13:     T5CONbits.RESEN = 0;
 [e = . . _T5CONbits 3 5 -> -> 0 `i `uc ]
-"16
-[; ;ir.c: 16:     T5CONbits.T5PS = 0b10;
+"14
+[; ;ir.c: 14:     T5CONbits.T5PS = 0b10;
 [e = . . _T5CONbits 2 3 -> -> 2 `i `uc ]
-"17
-[; ;ir.c: 17:     T5CONbits.T5MOD = 0;
+"15
+[; ;ir.c: 15:     T5CONbits.T5MOD = 0;
 [e = . . _T5CONbits 2 4 -> -> 0 `i `uc ]
-"18
-[; ;ir.c: 18:     T5CONbits.T5SYNC = 0;
+"16
+[; ;ir.c: 16:     T5CONbits.T5SYNC = 0;
 [e = . . _T5CONbits 3 1 -> -> 0 `i `uc ]
-"19
-[; ;ir.c: 19:     T5CONbits.TMR5CS = 0;
+"17
+[; ;ir.c: 17:     T5CONbits.TMR5CS = 0;
 [e = . . _T5CONbits 2 1 -> -> 0 `i `uc ]
-"20
-[; ;ir.c: 20:     T5CONbits.TMR5ON = 1;
+"18
+[; ;ir.c: 18:     T5CONbits.TMR5ON = 1;
 [e = . . _T5CONbits 2 0 -> -> 1 `i `uc ]
-"22
-[; ;ir.c: 22: }
+"20
+[; ;ir.c: 20: }
 [e :UE 315 ]
 }
-"27
-[; ;ir.c: 27: void init_capture(void)
+"25
+[; ;ir.c: 25: void init_capture(void) {
 [v _init_capture `(v ~T0 @X0 1 ef ]
-"28
-[; ;ir.c: 28: {
 {
 [e :U _init_capture ]
 [f ]
-"30
-[; ;ir.c: 30:     LATA = 0;
+"27
+[; ;ir.c: 27:     LATA = 0;
 [e = _LATA -> -> 0 `i `uc ]
-"31
-[; ;ir.c: 31:     TRISA = 0b00001100;
+"28
+[; ;ir.c: 28:     TRISA = 0b00001100;
 [e = _TRISA -> -> 12 `i `uc ]
-"32
-[; ;ir.c: 32:     CAP1CON = 0b01000110;
+"29
+[; ;ir.c: 29:     CAP1CON = 0b01000110;
 [e = _CAP1CON -> -> 70 `i `uc ]
-"33
-[; ;ir.c: 33:     CAP2CON = 0b01000110;
+"30
+[; ;ir.c: 30:     CAP2CON = 0b01000110;
 [e = _CAP2CON -> -> 70 `i `uc ]
-"34
-[; ;ir.c: 34:     T5CON = 0b00001001;
+"31
+[; ;ir.c: 31:     T5CON = 0b00001001;
 [e = _T5CON -> -> 9 `i `uc ]
-"35
-[; ;ir.c: 35:     DFLTCON = 0b00011000;
+"32
+[; ;ir.c: 32:     DFLTCON = 0b00011000;
 [e = _DFLTCON -> -> 24 `i `uc ]
-"36
-[; ;ir.c: 36: }
+"33
+[; ;ir.c: 33: }
 [e :UE 316 ]
 }
-"41
-[; ;ir.c: 41: void read_IR(struct Sensor_ir *Values)
+"38
+[; ;ir.c: 38: void read_IR(struct Sensor_ir *Values) {
 [v _read_IR `(v ~T0 @X0 1 ef1`*S314 ]
-"42
-[; ;ir.c: 42: {
 {
 [e :U _read_IR ]
-"41
-[; ;ir.c: 41: void read_IR(struct Sensor_ir *Values)
 [v _Values `*S314 ~T0 @X0 1 r1 ]
-"42
-[; ;ir.c: 42: {
 [f ]
-"43
-[; ;ir.c: 43:     Values->left = ((CAP2BUFH << 8) | (CAP2BUFL))/1;
-[e = . *U _Values 0 -> / | << -> _CAP2BUFH `i -> 8 `i -> _CAP2BUFL `i -> 1 `i `ui ]
+"41
+[; ;ir.c: 41:     Values->left = ((CAP2BUFH << 8) | (CAP2BUFL));
+[e = . *U _Values 0 -> | << -> _CAP2BUFH `i -> 8 `i -> _CAP2BUFL `i `ui ]
+"42
+[; ;ir.c: 42:     Values->right = ((CAP1BUFH << 8) | (CAP1BUFL));
+[e = . *U _Values 1 -> | << -> _CAP1BUFH `i -> 8 `i -> _CAP1BUFL `i `ui ]
 "44
-[; ;ir.c: 44:     Values->right = ((CAP1BUFH << 8) | (CAP1BUFL))/1;
-[e = . *U _Values 1 -> / | << -> _CAP1BUFH `i -> 8 `i -> _CAP1BUFL `i -> 1 `i `ui ]
+[; ;ir.c: 44:     Values->left = Values->left / 64;
+[e = . *U _Values 0 / . *U _Values 0 -> -> 64 `i `ui ]
 "45
-[; ;ir.c: 45: }
+[; ;ir.c: 45:     Values->right = Values->right / 64;
+[e = . *U _Values 1 / . *U _Values 1 -> -> 64 `i `ui ]
+"46
+[; ;ir.c: 46:     _delay((unsigned long)((50)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"57
+[; ;ir.c: 57: }
 [e :UE 317 ]
 }

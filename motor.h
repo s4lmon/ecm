@@ -5,9 +5,6 @@
 
 #include <xc.h>
 #define _XTAL_FREQ 8000000
-
-
-
 struct Motor {
     char power; //motor power, out of 100
     char direction; //motor direction, forward(1), reverse(0)
@@ -18,5 +15,21 @@ struct Motor {
 };
 
 
-#endif	
+void initTimer0(void);
+void initPWM(void);
+void setMotorPWM(struct Motor *m);
+void accelerate(struct Motor *m);
+void decelerate(struct Motor *m);
+void stop(struct Motor *mL, struct Motor *mR) ;
+void turnLeft(struct Motor *mL, struct Motor *mR);
+void turnRight(struct Motor *mL, struct Motor *mR);
+void forwards(struct Motor *mL, struct Motor *mR);
+void turnRightSlow(struct Motor *mL, struct Motor *mR) ;
+
+
+#endif	// 
+//struct P
+//unsigned int :1;
+//j}
+//flags;
 

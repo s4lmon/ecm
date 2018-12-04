@@ -1,183 +1,57 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[t ~ __interrupt . k ]
-[t T36 __interrupt high_priority ]
-"3617 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3617:     struct {
-[s S132 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S132 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
-"3626
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3626:     struct {
-[s S133 :4 `uc 1 :1 `uc 1 ]
-[n S133 . . TBIF ]
-"3630
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3630:     struct {
-[s S134 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S134 . . TX1IF RC1IF ]
-"3616
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3616: typedef union {
-[u S131 `S132 1 `S133 1 `S134 1 ]
-[n S131 . . . . ]
-"3636
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 3636: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
-[v _PIR1bits `VS131 ~T0 @X0 0 e@3998 ]
-"4851
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 4851: extern volatile unsigned char RCREG __attribute__((address(0xFAE)));
-[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
-"7144
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7144:     struct {
-[s S303 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S303 . INT1IF INT2IF . INT1IE INT2IE . INT1IP INT2IP ]
-"7154
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7154:     struct {
-[s S304 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S304 . INT1F INT2F . INT1E INT2E . INT1P INT2P ]
-"7143
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7143: typedef union {
-[u S302 `S303 1 `S304 1 ]
-[n S302 . . . ]
-"7165
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7165: extern volatile INTCON3bits_t INTCON3bits __attribute__((address(0xFF0)));
-[v _INTCON3bits `VS302 ~T0 @X0 0 e@4080 ]
-"1274
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1274:     struct {
-[s S52 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S52 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
-"1284
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1284:     struct {
-[s S53 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S53 . T1OSO T1OSI CCP1 INT0 INT1 INT2 TX RX ]
-"1294
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1294:     struct {
-[s S54 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S54 . T13CKI CCP2 . T0CKI SDA SCK CK DT ]
-"1304
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1304:     struct {
-[s S55 :1 `uc 1 :1 `uc 1 ]
-[n S55 . . NOT_FLTA ]
-"1308
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1308:     struct {
-[s S56 :2 `uc 1 :1 `uc 1 ]
-[n S56 . . NOT_FLTB ]
-"1312
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1312:     struct {
-[s S57 :6 `uc 1 :1 `uc 1 ]
-[n S57 . . NOT_SS ]
-"1316
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1316:     struct {
-[s S58 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S58 . . nFLTA nFLTB T5CKI SDI SCL nSS SDO ]
-"1326
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1326:     struct {
-[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S59 . . FLTA FLTB . SS ]
-"1333
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1333:     struct {
-[s S60 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S60 . . PA2 PA1 ]
-"1273
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1273: typedef union {
-[u S51 `S52 1 `S53 1 `S54 1 `S55 1 `S56 1 `S57 1 `S58 1 `S59 1 `S60 1 ]
-[n S51 . . . . . . . . . . ]
-"1339
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1339: extern volatile PORTCbits_t PORTCbits __attribute__((address(0xF82)));
-[v _PORTCbits `VS51 ~T0 @X0 0 e@3970 ]
-[p mainexit ]
-"5152
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 5152: extern volatile unsigned char ANSEL0 __attribute__((address(0xFB8)));
-[v _ANSEL0 `Vuc ~T0 @X0 0 e@4024 ]
-"5214
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 5214: extern volatile unsigned char ANSEL1 __attribute__((address(0xFB9)));
-[v _ANSEL1 `Vuc ~T0 @X0 0 e@4025 ]
-"6702
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6702: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
-[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"6708
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6708:     struct {
-[s S293 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S293 . SCS IOFS OSTS IRCF IDLEN ]
-"6715
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6715:     struct {
-[s S294 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S294 . SCS0 SCS1 . IRCF0 IRCF1 IRCF2 ]
-"6723
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6723:     struct {
-[s S295 :2 `uc 1 :1 `uc 1 ]
-[n S295 . . FLTS ]
-"6707
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6707: typedef union {
-[u S292 `S293 1 `S294 1 `S295 1 ]
-[n S292 . . . . ]
-"6728
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6728: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0xFD3)));
-[v _OSCCONbits `VS292 ~T0 @X0 0 e@4051 ]
-"16 ./lcd.h
-[; ;./lcd.h: 16: void LCD_init(void);
-[v _LCD_init `(v ~T0 @X0 0 ef ]
-"17 ./ir.h
-[; ;./ir.h: 17: void init_TIMER5(void);
-[v _init_TIMER5 `(v ~T0 @X0 0 ef ]
-"19 ./motor.h
-[; ;./motor.h: 19: void initPWM(void);
-[v _initPWM `(v ~T0 @X0 0 ef ]
-"18 ./ir.h
-[; ;./ir.h: 18: void init_capture(void);
-[v _init_capture `(v ~T0 @X0 0 ef ]
-"24 ./rfid.h
-[; ;./rfid.h: 24: void init_RFID(void);
-[v _init_RFID `(v ~T0 @X0 0 ef ]
-"25
-[; ;./rfid.h: 25: void interrupt_EUSART(void);
-[v _interrupt_EUSART `(v ~T0 @X0 0 ef ]
-"9 ./ir.h
-[; ;./ir.h: 9: struct Sensor_ir {
-[s S316 `ui 1 `ui 1 `ui 1 `ui 1 ]
-[n S316 Sensor_ir left right left_prev right_prev ]
+"6794 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6794:     struct {
+[s S295 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S295 . T0PS PSA T0SE T0CS T016BIT TMR0ON ]
+"6802
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6802:     struct {
+[s S296 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S296 . T0PS0 T0PS1 T0PS2 T0PS3 ]
+"6793
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6793: typedef union {
+[u S294 `S295 1 `S296 1 ]
+[n S294 . . . ]
+"6809
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6809: extern volatile T0CONbits_t T0CONbits __attribute__((address(0xFD5)));
+[v _T0CONbits `VS294 ~T0 @X0 0 e@4053 ]
+"6871
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6871: extern volatile unsigned char TMR0L __attribute__((address(0xFD6)));
+[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
+"6878
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 6878: extern volatile unsigned char TMR0H __attribute__((address(0xFD7)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
+"2495
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 2495: extern volatile unsigned char TRISB __attribute__((address(0xF93)));
+[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
+"954
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 954: extern volatile unsigned char PTCON0 __attribute__((address(0xF7F)));
+[v _PTCON0 `Vuc ~T0 @X0 0 e@3967 ]
+"927
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 927: extern volatile unsigned char PTCON1 __attribute__((address(0xF7E)));
+[v _PTCON1 `Vuc ~T0 @X0 0 e@3966 ]
+"759
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 759: extern volatile unsigned char PWMCON0 __attribute__((address(0xF6F)));
+[v _PWMCON0 `Vuc ~T0 @X0 0 e@3951 ]
+"693
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 693: extern volatile unsigned char PWMCON1 __attribute__((address(0xF6E)));
+[v _PWMCON1 `Vuc ~T0 @X0 0 e@3950 ]
+"906
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 906: extern volatile unsigned char PTPERL __attribute__((address(0xF7B)));
+[v _PTPERL `Vuc ~T0 @X0 0 e@3963 ]
+"899
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 899: extern volatile unsigned char PTPERH __attribute__((address(0xF7A)));
+[v _PTPERH `Vuc ~T0 @X0 0 e@3962 ]
 "8 ./motor.h
 [; ;./motor.h: 8: struct Motor {
-[s S317 `uc 1 `uc 1 `*uc 1 `*uc 1 `uc 1 `i 1 ]
-[n S317 Motor power direction duty_low duty_high dir_pin period ]
-"892 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 892: extern volatile unsigned char PDC0L __attribute__((address(0xF79)));
-[v _PDC0L `Vuc ~T0 @X0 0 e@3961 ]
-"885
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 885: extern volatile unsigned char PDC0H __attribute__((address(0xF78)));
-[v _PDC0H `Vuc ~T0 @X0 0 e@3960 ]
-"878
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 878: extern volatile unsigned char PDC1L __attribute__((address(0xF77)));
-[v _PDC1L `Vuc ~T0 @X0 0 e@3959 ]
-"871
-[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 871: extern volatile unsigned char PDC1H __attribute__((address(0xF76)));
-[v _PDC1H `Vuc ~T0 @X0 0 e@3958 ]
-"19 ./ir.h
-[; ;./ir.h: 19: void read_IR(struct Sensor_ir *values);
-[v _read_IR `(v ~T0 @X0 0 ef1`*S316 ]
-"20 ./lcd.h
-[; ;./lcd.h: 20: void print_IR(struct Sensor_ir *Values);
-[v _print_IR `(v ~T0 @X0 0 ef1`*S316 ]
-"23 ./motor.h
-[; ;./motor.h: 23: void stop(struct Motor *mL, struct Motor *mR) ;
-[v _stop `(v ~T0 @X0 0 ef2`*S317`*S317 ]
-"24
-[; ;./motor.h: 24: void turnLeft(struct Motor *mL, struct Motor *mR);
-[v _turnLeft `(v ~T0 @X0 0 ef2`*S317`*S317 ]
-[v F3079 `(v ~T0 @X0 1 tf1`ul ]
+[s S314 `uc 1 `uc 1 `*uc 1 `*uc 1 `uc 1 `i 1 ]
+[n S314 Motor power direction duty_low duty_high dir_pin period ]
+"1864 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
+[; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 1864: extern volatile unsigned char LATB __attribute__((address(0xF8A)));
+[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
+[v F2761 `(v ~T0 @X0 1 tf1`ul ]
 "183 /Applications/microchip/xc8/v2.00/pic/include/pic18.h
-[v __delay `JF3079 ~T0 @X0 0 e ]
+[v __delay `JF2761 ~T0 @X0 0 e ]
 [p i __delay ]
-"25 ./motor.h
-[; ;./motor.h: 25: void turnRight(struct Motor *mL, struct Motor *mR);
-[v _turnRight `(v ~T0 @X0 0 ef2`*S317`*S317 ]
-"26
-[; ;./motor.h: 26: void forwards(struct Motor *mL, struct Motor *mR);
-[v _forwards `(v ~T0 @X0 0 ef2`*S317`*S317 ]
-"27
-[; ;./motor.h: 27: void turnRightSlow(struct Motor *mL, struct Motor *mR) ;
-[v _turnRightSlow `(v ~T0 @X0 0 ef2`*S317`*S317 ]
-"27 ./rfid.h
-[; ;./rfid.h: 27: void print_RFID(char *pa,char *dis);
-[v _print_RFID `(v ~T0 @X0 0 ef2`*uc`*uc ]
-"1 main.c
-[p x OSC = IRCIO  LVP = OFF  MCLRE = OFF ]
 "54 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
 [; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 54: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -718,382 +592,501 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7616
 [; ;/Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h: 7616: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"15 main.c
-[; ;main.c: 15: volatile char card_read;
-[v _card_read `Vuc ~T0 @X0 1 e ]
-"16
-[; ;main.c: 16: char string_rfid[17];
-[v _string_rfid `uc ~T0 @X0 -> 17 `i e ]
-[v $root$_InterruptHandlerHigh `(v ~T0 @X0 0 e ]
-"19
-[; ;main.c: 19: void __attribute__((picinterrupt("high_priority"))) InterruptHandlerHigh() {
-[v _InterruptHandlerHigh `(v ~T36 @X0 1 ef ]
+"5 motor.c
+[; ;motor.c: 5: void initTimer0(void) {
+[v _initTimer0 `(v ~T0 @X0 1 ef ]
 {
-[e :U _InterruptHandlerHigh ]
+[e :U _initTimer0 ]
 [f ]
+"6
+[; ;motor.c: 6:     T0CONbits.TMR0ON = 1;
+[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
+"7
+[; ;motor.c: 7:     T0CONbits.T016BIT = 0;
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+"8
+[; ;motor.c: 8:     T0CONbits.T0CS = 1;
+[e = . . _T0CONbits 0 3 -> -> 1 `i `uc ]
+"9
+[; ;motor.c: 9:     T0CONbits.PSA = 0;
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
+"10
+[; ;motor.c: 10:     T0CONbits.T0PS = 0b001;
+[e = . . _T0CONbits 0 0 -> -> 1 `i `uc ]
+"11
+[; ;motor.c: 11:     T0CONbits.T0SE = 0;
+[e = . . _T0CONbits 0 2 -> -> 0 `i `uc ]
+"12
+[; ;motor.c: 12:     TMR0L = 0;
+[e = _TMR0L -> -> 0 `i `uc ]
+"13
+[; ;motor.c: 13:     TMR0H = 0;
+[e = _TMR0H -> -> 0 `i `uc ]
+"14
+[; ;motor.c: 14: }
+[e :UE 315 ]
+}
+"19
+[; ;motor.c: 19: void initPWM(void) {
+[v _initPWM `(v ~T0 @X0 1 ef ]
+{
+[e :U _initPWM ]
+[f ]
+"20
+[; ;motor.c: 20:     TRISB = 0;
+[e = _TRISB -> -> 0 `i `uc ]
 "22
-[; ;main.c: 22:     static char count = 0;
-[v F3153 `uc ~T0 @X0 1 s count ]
-[i F3153
--> -> 0 `i `uc
-]
+[; ;motor.c: 22:     PTCON0 = 0b00000000;
+[e = _PTCON0 -> -> 0 `i `uc ]
 "23
-[; ;main.c: 23:     char rx_char;
-[v _rx_char `uc ~T0 @X0 1 a ]
+[; ;motor.c: 23:     PTCON1 = 0b10000000;
+[e = _PTCON1 -> -> 128 `i `uc ]
 "25
-[; ;main.c: 25:     if (PIR1bits.RCIF) {
-[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 319  ]
-{
+[; ;motor.c: 25:     PWMCON0 = 0b01111111;
+[e = _PWMCON0 -> -> 127 `i `uc ]
 "26
-[; ;main.c: 26:         rx_char = RCREG;
-[e = _rx_char -> _RCREG `uc ]
-"27
-[; ;main.c: 27:         if (rx_char == 0x02) {
-[e $ ! == -> _rx_char `i -> 2 `i 320  ]
-{
-"28
-[; ;main.c: 28:             count = 0;
-[e = F3153 -> -> 0 `i `uc ]
+[; ;motor.c: 26:     PWMCON1 = 0x00;
+[e = _PWMCON1 -> -> 0 `i `uc ]
 "29
-[; ;main.c: 29:         }
-}
-[e :U 320 ]
+[; ;motor.c: 29:     PTPERL = 0b11000111;
+[e = _PTPERL -> -> 199 `i `uc ]
 "30
-[; ;main.c: 30:         if (rx_char == 0x03) {
-[e $ ! == -> _rx_char `i -> 3 `i 321  ]
-{
+[; ;motor.c: 30:     PTPERH = 0b0000;
+[e = _PTPERH -> -> 0 `i `uc ]
 "31
-[; ;main.c: 31:             card_read = 1;
-[e = _card_read -> -> 1 `i `uc ]
-"32
-[; ;main.c: 32:         }
+[; ;motor.c: 31: }
+[e :UE 316 ]
 }
-[e :U 321 ]
 "33
-[; ;main.c: 33:         string_rfid[count] = rx_char;
-[e = *U + &U _string_rfid * -> F3153 `ux -> -> # *U &U _string_rfid `ui `ux _rx_char ]
+[; ;motor.c: 33: void setMotorPWM(struct Motor *m) {
+[v _setMotorPWM `(v ~T0 @X0 1 ef1`*S314 ]
+{
+[e :U _setMotorPWM ]
+[v _m `*S314 ~T0 @X0 1 r1 ]
+[f ]
 "34
-[; ;main.c: 34:         count++;
-[e ++ F3153 -> -> 1 `i `uc ]
+[; ;motor.c: 34:     int PWMduty;
+[v _PWMduty `i ~T0 @X0 1 a ]
 "35
-[; ;main.c: 35:     }
-}
-[e :U 319 ]
-"36
-[; ;main.c: 36:     if (INTCON3bits.INT2IF) {
-[e $ ! != -> . . _INTCON3bits 0 1 `i -> 0 `i 322  ]
+[; ;motor.c: 35:     if (m->direction) {
+[e $ ! != -> . *U _m 1 `i -> 0 `i 318  ]
 {
 "37
-[; ;main.c: 37:         if (PORTCbits.RC5 == 1) {
-[e $ ! == -> . . _PORTCbits 0 5 `i -> 1 `i 323  ]
-{
+[; ;motor.c: 37:         PWMduty = m->period - ((int) (m->power)*(m->period)) / 100;
+[e = _PWMduty - . *U _m 5 / * -> . *U _m 0 `i . *U _m 5 -> 100 `i ]
 "38
-[; ;main.c: 38:             if (PORTCbits.RC5 == 1) {
-[e $ ! == -> . . _PORTCbits 0 5 `i -> 1 `i 324  ]
-{
-"39
-[; ;main.c: 39:                 if (PORTCbits.RC5 == 1) {
-[e $ ! == -> . . _PORTCbits 0 5 `i -> 1 `i 325  ]
+[; ;motor.c: 38:     } else {
+}
+[e $U 319  ]
+[e :U 318 ]
 {
 "40
-[; ;main.c: 40:                     if (PORTCbits.RC5 == 1) {
-[e $ ! == -> . . _PORTCbits 0 5 `i -> 1 `i 326  ]
-{
+[; ;motor.c: 40:         PWMduty = ((int) (m->power)*(m->period)) / 100;
+[e = _PWMduty / * -> . *U _m 0 `i . *U _m 5 -> 100 `i ]
 "41
-[; ;main.c: 41:                         card_read = 0;
-[e = _card_read -> -> 0 `i `uc ]
+[; ;motor.c: 41:     }
+}
+[e :U 319 ]
 "42
-[; ;main.c: 42:                     }
-}
-[e :U 326 ]
+[; ;motor.c: 42:     PWMduty = (PWMduty << 2);
+[e = _PWMduty << _PWMduty -> 2 `i ]
 "43
-[; ;main.c: 43:                 }
-}
-[e :U 325 ]
+[; ;motor.c: 43:     *(m->duty_low) = PWMduty & 0xFF;
+[e = *U . *U _m 2 -> & _PWMduty -> 255 `i `uc ]
 "44
-[; ;main.c: 44:             }
-}
-[e :U 324 ]
-"45
-[; ;main.c: 45:         }
-}
-[e :U 323 ]
+[; ;motor.c: 44:     *(m->duty_high) = (PWMduty >> 8) & 0x3F;
+[e = *U . *U _m 3 -> & >> _PWMduty -> 8 `i -> 63 `i `uc ]
 "46
-[; ;main.c: 46:         INTCON3bits.INT2IF = 0;
-[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
+[; ;motor.c: 46:     if (m->direction) {
+[e $ ! != -> . *U _m 1 `i -> 0 `i 320  ]
+{
 "47
-[; ;main.c: 47:     }
+[; ;motor.c: 47:         LATB = LATB | (1 << (m->dir_pin));
+[e = _LATB -> | -> _LATB `i << -> 1 `i -> . *U _m 4 `i `uc ]
+"48
+[; ;motor.c: 48:     } else {
 }
-[e :U 322 ]
+[e $U 321  ]
+[e :U 320 ]
+{
 "49
-[; ;main.c: 49: }
-[e :UE 318 ]
+[; ;motor.c: 49:         LATB = LATB & (~(1 << (m->dir_pin)));
+[e = _LATB -> & -> _LATB `i ~ << -> 1 `i -> . *U _m 4 `i `uc ]
+"50
+[; ;motor.c: 50:     }
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
+[e :U 321 ]
 "51
-[; ;main.c: 51: int main(void) {
-[v _main `(i ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"52
-[; ;main.c: 52:     ANSEL0 = 0;
-[e = _ANSEL0 -> -> 0 `i `uc ]
-"53
-[; ;main.c: 53:     ANSEL1 = 0;
-[e = _ANSEL1 -> -> 0 `i `uc ]
-"54
-[; ;main.c: 54:     OSCCON = 0x72;
-[e = _OSCCON -> -> 114 `i `uc ]
+[; ;motor.c: 51: }
+[e :UE 317 ]
+}
 "55
-[; ;main.c: 55:     while (!OSCCONbits.IOFS);
-[e $U 328  ]
-[e :U 329 ]
-[e :U 328 ]
-[e $ ! != -> . . _OSCCONbits 0 1 `i -> 0 `i 329  ]
-[e :U 330 ]
+[; ;motor.c: 55: void accelerate(struct Motor *m) {
+[v _accelerate `(v ~T0 @X0 1 ef1`*S314 ]
+{
+[e :U _accelerate ]
+[v _m `*S314 ~T0 @X0 1 r1 ]
+[f ]
+"56
+[; ;motor.c: 56:     for (m->power; (m->power) <= 100; m->power++) {
+{
+[e . *U _m 0 ]
+[e $U 326  ]
+[e :U 323 ]
+{
 "57
-[; ;main.c: 57:     LCD_init();
-[e ( _LCD_init ..  ]
+[; ;motor.c: 57:         setMotorPWM(m);
+[e ( _setMotorPWM (1 _m ]
+"58
+[; ;motor.c: 58:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "59
-[; ;main.c: 59:     init_TIMER5();
-[e ( _init_TIMER5 ..  ]
+[; ;motor.c: 59:     }
+}
+[e ++ . *U _m 0 -> -> 1 `i `uc ]
+[e :U 326 ]
+[e $ <= -> . *U _m 0 `i -> 100 `i 323  ]
+[e :U 324 ]
+}
 "60
-[; ;main.c: 60:     initPWM();
-[e ( _initPWM ..  ]
-"61
-[; ;main.c: 61:     init_capture();
-[e ( _init_capture ..  ]
+[; ;motor.c: 60: }
+[e :UE 322 ]
+}
 "62
-[; ;main.c: 62:     init_RFID();
-[e ( _init_RFID ..  ]
+[; ;motor.c: 62: void decelerate(struct Motor *m) {
+[v _decelerate `(v ~T0 @X0 1 ef1`*S314 ]
+{
+[e :U _decelerate ]
+[v _m `*S314 ~T0 @X0 1 r1 ]
+[f ]
+"63
+[; ;motor.c: 63:     for (m->power; (m->power) > 0; m->power--) {
+{
+[e . *U _m 0 ]
+[e $U 331  ]
+[e :U 328 ]
+{
+"64
+[; ;motor.c: 64:         setMotorPWM(m);
+[e ( _setMotorPWM (1 _m ]
+"65
+[; ;motor.c: 65:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "66
-[; ;main.c: 66:     interrupt_EUSART();
-[e ( _interrupt_EUSART ..  ]
+[; ;motor.c: 66:     }
+}
+[e -- . *U _m 0 -> -> 1 `i `uc ]
+[e :U 331 ]
+[e $ > -> . *U _m 0 `i -> 0 `i 328  ]
+[e :U 329 ]
+}
 "67
-[; ;main.c: 67:     struct Sensor_ir Values;
-[v _Values `S316 ~T0 @X0 1 a ]
-"68
-[; ;main.c: 68:     struct Motor mL, mR;
-[v _mL `S317 ~T0 @X0 1 a ]
-[v _mR `S317 ~T0 @X0 1 a ]
-"69
-[; ;main.c: 69:     int PWMcycle = 199;
-[v _PWMcycle `i ~T0 @X0 1 a ]
-[e = _PWMcycle -> 199 `i ]
-"70
-[; ;main.c: 70:     mL.power = 0;
-[e = . _mL 0 -> -> 0 `i `uc ]
-"71
-[; ;main.c: 71:     mL.direction = 1;
-[e = . _mL 1 -> -> 1 `i `uc ]
-"72
-[; ;main.c: 72:     mL.duty_low = (unsigned char *) (&PDC0L);
-[e = . _mL 2 -> &U _PDC0L `*uc ]
+[; ;motor.c: 67: }
+[e :UE 327 ]
+}
 "73
-[; ;main.c: 73:     mL.duty_high = (unsigned char *) (&PDC0H);
-[e = . _mL 3 -> &U _PDC0H `*uc ]
-"74
-[; ;main.c: 74:     mL.dir_pin = 0;
-[e = . _mL 4 -> -> 0 `i `uc ]
-"75
-[; ;main.c: 75:     mL.period = PWMcycle;
-[e = . _mL 5 _PWMcycle ]
+[; ;motor.c: 73: void stop(struct Motor *mL, struct Motor *mR) {
+[v _stop `(v ~T0 @X0 1 ef2`*S314`*S314 ]
+{
+[e :U _stop ]
+[v _mL `*S314 ~T0 @X0 1 r1 ]
+[v _mR `*S314 ~T0 @X0 1 r2 ]
+[f ]
+"76
+[; ;motor.c: 76:     while (mL->power > 0 || mR->power > 0) {
+[e $U 333  ]
+[e :U 334 ]
+{
+"77
+[; ;motor.c: 77:         if (mL->power > 0) {
+[e $ ! > -> . *U _mL 0 `i -> 0 `i 336  ]
+{
 "78
-[; ;main.c: 78:     mR.power = 0;
-[e = . _mR 0 -> -> 0 `i `uc ]
+[; ;motor.c: 78:             mL->power--;
+[e -- . *U _mL 0 -> -> 1 `i `uc ]
 "79
-[; ;main.c: 79:     mR.direction = 1;
-[e = . _mR 1 -> -> 1 `i `uc ]
+[; ;motor.c: 79:         }
+}
+[e :U 336 ]
 "80
-[; ;main.c: 80:     mR.duty_low = (unsigned char *) (&PDC1L);
-[e = . _mR 2 -> &U _PDC1L `*uc ]
+[; ;motor.c: 80:         if (mR->power > 0) {
+[e $ ! > -> . *U _mR 0 `i -> 0 `i 337  ]
+{
 "81
-[; ;main.c: 81:     mR.duty_high = (unsigned char *) (&PDC1H);
-[e = . _mR 3 -> &U _PDC1H `*uc ]
+[; ;motor.c: 81:             mR->power--;
+[e -- . *U _mR 0 -> -> 1 `i `uc ]
 "82
-[; ;main.c: 82:     mR.dir_pin = 2;
-[e = . _mR 4 -> -> 2 `i `uc ]
-"83
-[; ;main.c: 83:     mR.period = PWMcycle;
-[e = . _mR 5 _PWMcycle ]
-"85
-[; ;main.c: 85:     while (1) {
-[e :U 332 ]
-{
-"87
-[; ;main.c: 87:         int direction = 0;
-[v _direction `i ~T0 @X0 1 a ]
-[e = _direction -> 0 `i ]
-"90
-[; ;main.c: 90:         while (card_read == 0) {
-[e $U 334  ]
-[e :U 335 ]
-{
-"91
-[; ;main.c: 91:             read_IR(&Values);
-[e ( _read_IR (1 &U _Values ]
-"95
-[; ;main.c: 95:             print_IR(&Values);
-[e ( _print_IR (1 &U _Values ]
-"96
-[; ;main.c: 96:             int threshold = 50;
-[v _threshold `i ~T0 @X0 1 a ]
-[e = _threshold -> 50 `i ]
-"97
-[; ;main.c: 97:             int diff = Values.left - Values.right;
-[v _diff `i ~T0 @X0 1 a ]
-[e = _diff -> - . _Values 0 . _Values 1 `i ]
-"98
-[; ;main.c: 98:             if (Values.left > 256 | Values.right > 256) {
-[e $ ! | > . _Values 0 -> -> 256 `i `ui > . _Values 1 -> -> 256 `i `ui 337  ]
-{
-"99
-[; ;main.c: 99:                 threshold = 50;
-[e = _threshold -> 50 `i ]
-"100
-[; ;main.c: 100:             } else {
+[; ;motor.c: 82:         }
 }
-[e $U 338  ]
 [e :U 337 ]
-{
-"101
-[; ;main.c: 101:                 threshold = 20;
-[e = _threshold -> 20 `i ]
-"102
-[; ;main.c: 102:             }
+"83
+[; ;motor.c: 83:         setMotorPWM(mL);
+[e ( _setMotorPWM (1 _mL ]
+"84
+[; ;motor.c: 84:         setMotorPWM(mR);
+[e ( _setMotorPWM (1 _mR ]
+"85
+[; ;motor.c: 85:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"86
+[; ;motor.c: 86:     }
 }
-[e :U 338 ]
-"104
-[; ;main.c: 104:             if (diff < -threshold) {
-[e $ ! < _diff -U _threshold 339  ]
-{
-"106
-[; ;main.c: 106:                 stop(&mL, &mR);
-[e ( _stop (2 , &U _mL &U _mR ]
-"107
-[; ;main.c: 107:                 turnLeft(&mL, &mR);
-[e ( _turnLeft (2 , &U _mL &U _mR ]
-"108
-[; ;main.c: 108:                 _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"112
-[; ;main.c: 112:                 direction = 1;
-[e = _direction -> 1 `i ]
-"114
-[; ;main.c: 114:             } else if (diff > threshold) {
+[e :U 333 ]
+"76
+[; ;motor.c: 76:     while (mL->power > 0 || mR->power > 0) {
+[e $ || > -> . *U _mL 0 `i -> 0 `i > -> . *U _mR 0 `i -> 0 `i 334  ]
+[e :U 335 ]
+"87
+[; ;motor.c: 87: }
+[e :UE 332 ]
 }
-[e $U 340  ]
-[e :U 339 ]
-[e $ ! > _diff _threshold 341  ]
+"89
+[; ;motor.c: 89: void turnLeft(struct Motor *mL, struct Motor *mR) {
+[v _turnLeft `(v ~T0 @X0 1 ef2`*S314`*S314 ]
 {
-"116
-[; ;main.c: 116:                 stop(&mL, &mR);
-[e ( _stop (2 , &U _mL &U _mR ]
-"117
-[; ;main.c: 117:                 turnRight(&mL, &mR);
-[e ( _turnRight (2 , &U _mL &U _mR ]
-"118
-[; ;main.c: 118:                 _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"121
-[; ;main.c: 121:                 direction = -1;
-[e = _direction -U -> 1 `i ]
-"122
-[; ;main.c: 122:             } else {
-}
-[e $U 342  ]
-[e :U 341 ]
+[e :U _turnLeft ]
+[v _mL `*S314 ~T0 @X0 1 r1 ]
+[v _mR `*S314 ~T0 @X0 1 r2 ]
+[f ]
+"92
+[; ;motor.c: 92:     mL->direction = 0;
+[e = . *U _mL 1 -> -> 0 `i `uc ]
+"93
+[; ;motor.c: 93:     mR->direction = 1;
+[e = . *U _mR 1 -> -> 1 `i `uc ]
+"94
+[; ;motor.c: 94:     while (mL->power < 50 || mR->power < 50) {
+[e $U 339  ]
+[e :U 340 ]
 {
-"123
-[; ;main.c: 123:                 if ((Values.left > 100) && (Values.right > 100)) {
-[e $ ! && > . _Values 0 -> -> 100 `i `ui > . _Values 1 -> -> 100 `i `ui 343  ]
+"95
+[; ;motor.c: 95:         if (mL->power < 50) {
+[e $ ! < -> . *U _mL 0 `i -> 50 `i 342  ]
 {
-"124
-[; ;main.c: 124:                     if (direction != 0) {
-[e $ ! != _direction -> 0 `i 344  ]
-{
-"125
-[; ;main.c: 125:                         stop(&mL, &mR);
-[e ( _stop (2 , &U _mL &U _mR ]
-"126
-[; ;main.c: 126:                         forwards(&mL, &mR);
-[e ( _forwards (2 , &U _mL &U _mR ]
-"128
-[; ;main.c: 128:                     }
-}
-[e :U 344 ]
-"130
-[; ;main.c: 130:                     direction = 0;
-[e = _direction -> 0 `i ]
-"131
-[; ;main.c: 131:                 } else {
-}
-[e $U 345  ]
-[e :U 343 ]
-{
-"132
-[; ;main.c: 132:                     if (direction != 1) {
-[e $ ! != _direction -> 1 `i 346  ]
-{
-"134
-[; ;main.c: 134:                         turnRightSlow(&mL, &mR);
-[e ( _turnRightSlow (2 , &U _mL &U _mR ]
-"135
-[; ;main.c: 135:                         stop(&mL, &mR);
-[e ( _stop (2 , &U _mL &U _mR ]
-"136
-[; ;main.c: 136:                         direction = -1;
-[e = _direction -U -> 1 `i ]
-"137
-[; ;main.c: 137:                         _delay((unsigned long)((100)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"138
-[; ;main.c: 138:                     }
-}
-[e :U 346 ]
-"141
-[; ;main.c: 141:                 }
-}
-[e :U 345 ]
-"142
-[; ;main.c: 142:             }
+"96
+[; ;motor.c: 96:             mL->power++;
+[e ++ . *U _mL 0 -> -> 1 `i `uc ]
+"97
+[; ;motor.c: 97:         }
 }
 [e :U 342 ]
-[e :U 340 ]
-"145
-[; ;main.c: 145:         }
+"98
+[; ;motor.c: 98:         if (mR->power < 50) {
+[e $ ! < -> . *U _mR 0 `i -> 50 `i 343  ]
+{
+"99
+[; ;motor.c: 99:             mR->power++;
+[e ++ . *U _mR 0 -> -> 1 `i `uc ]
+"100
+[; ;motor.c: 100:         }
 }
-[e :U 334 ]
-"90
-[; ;main.c: 90:         while (card_read == 0) {
-[e $ == -> _card_read `i -> 0 `i 335  ]
-[e :U 336 ]
+[e :U 343 ]
+"101
+[; ;motor.c: 101:         setMotorPWM(mL);
+[e ( _setMotorPWM (1 _mL ]
+"102
+[; ;motor.c: 102:         setMotorPWM(mR);
+[e ( _setMotorPWM (1 _mR ]
+"103
+[; ;motor.c: 103:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"104
+[; ;motor.c: 104:     }
+}
+[e :U 339 ]
+"94
+[; ;motor.c: 94:     while (mL->power < 50 || mR->power < 50) {
+[e $ || < -> . *U _mL 0 `i -> 50 `i < -> . *U _mR 0 `i -> 50 `i 340  ]
+[e :U 341 ]
+"105
+[; ;motor.c: 105: }
+[e :UE 338 ]
+}
+"107
+[; ;motor.c: 107: void turnRight(struct Motor *mL, struct Motor *mR) {
+[v _turnRight `(v ~T0 @X0 1 ef2`*S314`*S314 ]
+{
+[e :U _turnRight ]
+[v _mL `*S314 ~T0 @X0 1 r1 ]
+[v _mR `*S314 ~T0 @X0 1 r2 ]
+[f ]
+"110
+[; ;motor.c: 110:     mL->direction = 1;
+[e = . *U _mL 1 -> -> 1 `i `uc ]
+"111
+[; ;motor.c: 111:     mR->direction = 0;
+[e = . *U _mR 1 -> -> 0 `i `uc ]
+"112
+[; ;motor.c: 112:     while (mL->power < 50 || mR->power < 50) {
+[e $U 345  ]
+[e :U 346 ]
+{
+"113
+[; ;motor.c: 113:         if (mL->power < 50) {
+[e $ ! < -> . *U _mL 0 `i -> 50 `i 348  ]
+{
+"114
+[; ;motor.c: 114:             mL->power++;
+[e ++ . *U _mL 0 -> -> 1 `i `uc ]
+"115
+[; ;motor.c: 115:         }
+}
+[e :U 348 ]
+"116
+[; ;motor.c: 116:         if (mR->power < 50) {
+[e $ ! < -> . *U _mR 0 `i -> 50 `i 349  ]
+{
+"117
+[; ;motor.c: 117:             mR->power++;
+[e ++ . *U _mR 0 -> -> 1 `i `uc ]
+"118
+[; ;motor.c: 118:         }
+}
+[e :U 349 ]
+"119
+[; ;motor.c: 119:         setMotorPWM(mL);
+[e ( _setMotorPWM (1 _mL ]
+"120
+[; ;motor.c: 120:         setMotorPWM(mR);
+[e ( _setMotorPWM (1 _mR ]
+"121
+[; ;motor.c: 121:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"122
+[; ;motor.c: 122:     }
+}
+[e :U 345 ]
+"112
+[; ;motor.c: 112:     while (mL->power < 50 || mR->power < 50) {
+[e $ || < -> . *U _mL 0 `i -> 50 `i < -> . *U _mR 0 `i -> 50 `i 346  ]
+[e :U 347 ]
+"123
+[; ;motor.c: 123: }
+[e :UE 344 ]
+}
+"124
+[; ;motor.c: 124: void turnRightSlow(struct Motor *mL, struct Motor *mR) {
+[v _turnRightSlow `(v ~T0 @X0 1 ef2`*S314`*S314 ]
+{
+[e :U _turnRightSlow ]
+[v _mL `*S314 ~T0 @X0 1 r1 ]
+[v _mR `*S314 ~T0 @X0 1 r2 ]
+[f ]
+"127
+[; ;motor.c: 127:     mL->direction = 1;
+[e = . *U _mL 1 -> -> 1 `i `uc ]
+"128
+[; ;motor.c: 128:     mR->direction = 0;
+[e = . *U _mR 1 -> -> 0 `i `uc ]
+"129
+[; ;motor.c: 129:     while (mL->power < 50 || mR->power < 50) {
+[e $U 351  ]
+[e :U 352 ]
+{
+"130
+[; ;motor.c: 130:         if (mL->power < 50) {
+[e $ ! < -> . *U _mL 0 `i -> 50 `i 354  ]
+{
+"131
+[; ;motor.c: 131:             mL->power++;
+[e ++ . *U _mL 0 -> -> 1 `i `uc ]
+"132
+[; ;motor.c: 132:         }
+}
+[e :U 354 ]
+"133
+[; ;motor.c: 133:         if (mR->power < 50
+[e $ ! < -> . *U _mR 0 `i -> 50 `i 355  ]
+"134
+[; ;motor.c: 134:                 ) {
+{
+"135
+[; ;motor.c: 135:             mR->power++;
+[e ++ . *U _mR 0 -> -> 1 `i `uc ]
+"136
+[; ;motor.c: 136:         }
+}
+[e :U 355 ]
+"137
+[; ;motor.c: 137:         setMotorPWM(mL);
+[e ( _setMotorPWM (1 _mL ]
+"138
+[; ;motor.c: 138:         setMotorPWM(mR);
+[e ( _setMotorPWM (1 _mR ]
+"139
+[; ;motor.c: 139:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"140
+[; ;motor.c: 140:     }
+}
+[e :U 351 ]
+"129
+[; ;motor.c: 129:     while (mL->power < 50 || mR->power < 50) {
+[e $ || < -> . *U _mL 0 `i -> 50 `i < -> . *U _mR 0 `i -> 50 `i 352  ]
+[e :U 353 ]
+"141
+[; ;motor.c: 141: }
+[e :UE 350 ]
+}
+"144
+[; ;motor.c: 144: void forwards(struct Motor *mL, struct Motor *mR) {
+[v _forwards `(v ~T0 @X0 1 ef2`*S314`*S314 ]
+{
+[e :U _forwards ]
+[v _mL `*S314 ~T0 @X0 1 r1 ]
+[v _mR `*S314 ~T0 @X0 1 r2 ]
+[f ]
+"145
+[; ;motor.c: 145:     mL->direction = 0;
+[e = . *U _mL 1 -> -> 0 `i `uc ]
+"146
+[; ;motor.c: 146:     mR->direction = 0;
+[e = . *U _mR 1 -> -> 0 `i `uc ]
+"147
+[; ;motor.c: 147:     while (mL->power < 100 || mR->power < 100) {
+[e $U 357  ]
+[e :U 358 ]
+{
+"148
+[; ;motor.c: 148:         if (mL->power < 100) {
+[e $ ! < -> . *U _mL 0 `i -> 100 `i 360  ]
+{
+"149
+[; ;motor.c: 149:             mL->power++;
+[e ++ . *U _mL 0 -> -> 1 `i `uc ]
 "150
-[; ;main.c: 150:         if (card_read == 1) {
-[e $ ! == -> _card_read `i -> 1 `i 347  ]
+[; ;motor.c: 150:         }
+}
+[e :U 360 ]
+"151
+[; ;motor.c: 151:         if (mR->power < 100) {
+[e $ ! < -> . *U _mR 0 `i -> 100 `i 361  ]
 {
 "152
-[; ;main.c: 152:             print_RFID(&string_rfid[0], &string_rfid[0]);
-[e ( _print_RFID (2 , &U *U + &U _string_rfid * -> -> -> 0 `i `ui `ux -> -> # *U &U _string_rfid `ui `ux &U *U + &U _string_rfid * -> -> -> 0 `i `ui `ux -> -> # *U &U _string_rfid `ui `ux ]
+[; ;motor.c: 152:             mR->power++;
+[e ++ . *U _mR 0 -> -> 1 `i `uc ]
 "153
-[; ;main.c: 153:             _delay((unsigned long)((10)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;motor.c: 153:         }
+}
+[e :U 361 ]
 "154
-[; ;main.c: 154:             return 0;
-[e ) -> 0 `i ]
-[e $UE 327  ]
+[; ;motor.c: 154:         setMotorPWM(mL);
+[e ( _setMotorPWM (1 _mL ]
 "155
-[; ;main.c: 155:         }
-}
-[e :U 347 ]
+[; ;motor.c: 155:         setMotorPWM(mR);
+[e ( _setMotorPWM (1 _mR ]
 "156
-[; ;main.c: 156:     }
-}
-[e :U 331 ]
-[e $U 332  ]
-[e :U 333 ]
+[; ;motor.c: 156:         _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
 "157
-[; ;main.c: 157: }
-[e :UE 327 ]
+[; ;motor.c: 157:     }
+}
+[e :U 357 ]
+"147
+[; ;motor.c: 147:     while (mL->power < 100 || mR->power < 100) {
+[e $ || < -> . *U _mL 0 `i -> 100 `i < -> . *U _mR 0 `i -> 100 `i 358  ]
+[e :U 359 ]
+"158
+[; ;motor.c: 158: }
+[e :UE 356 ]
 }

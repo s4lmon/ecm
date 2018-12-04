@@ -5131,6 +5131,8 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 struct Sensor_ir {
     unsigned int left;
     unsigned int right;
+    unsigned int left_prev;
+    unsigned int right_prev;
 
 };
 
@@ -5143,9 +5145,7 @@ void read_IR(struct Sensor_ir *values);
 
 
 
-
-void init_TIMER5(void)
-{
+void init_TIMER5(void) {
 
 
 
@@ -5164,8 +5164,7 @@ void init_TIMER5(void)
 
 
 
-void init_capture(void)
-{
+void init_capture(void) {
 
     LATA = 0;
     TRISA = 0b00001100;
@@ -5178,8 +5177,14 @@ void init_capture(void)
 
 
 
-void read_IR(struct Sensor_ir *Values)
-{
-    Values->left = ((CAP2BUFH << 8) | (CAP2BUFL))/1;
-    Values->right = ((CAP1BUFH << 8) | (CAP1BUFL))/1;
+void read_IR(struct Sensor_ir *Values) {
+
+
+    Values->left = ((CAP2BUFH << 8) | (CAP2BUFL));
+    Values->right = ((CAP1BUFH << 8) | (CAP1BUFL));
+
+    Values->left = Values->left / 64;
+    Values->right = Values->right / 64;
+    _delay((unsigned long)((50)*(8000000/4000.0)));
+# 57 "ir.c"
 }

@@ -5254,6 +5254,7 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 
 
 
+
 # 1 "./lcd.h" 1
 # 10 "./lcd.h"
 # 1 "./ir.h" 1
@@ -5268,6 +5269,8 @@ extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 struct Sensor_ir {
     unsigned int left;
     unsigned int right;
+    unsigned int left_prev;
+    unsigned int right_prev;
 
 };
 
@@ -5286,11 +5289,17 @@ void LCD_line (char line);
 void LCD_string(char *string);
 void LCD_clear(void);
 void print_IR(struct Sensor_ir *Values);
-# 7 "main.c" 2
+# 8 "main.c" 2
 
 
 # 1 "./motor.h" 1
-# 11 "./motor.h"
+
+
+
+
+
+
+
 struct Motor {
     char power;
     char direction;
@@ -5299,7 +5308,19 @@ struct Motor {
     char dir_pin;
     int period;
 };
-# 9 "main.c" 2
+
+
+void initTimer0(void);
+void initPWM(void);
+void setMotorPWM(struct Motor *m);
+void accelerate(struct Motor *m);
+void decelerate(struct Motor *m);
+void stop(struct Motor *mL, struct Motor *mR) ;
+void turnLeft(struct Motor *mL, struct Motor *mR);
+void turnRight(struct Motor *mL, struct Motor *mR);
+void forwards(struct Motor *mL, struct Motor *mR);
+void turnRightSlow(struct Motor *mL, struct Motor *mR) ;
+# 10 "main.c" 2
 
 # 1 "./rfid.h" 1
 # 24 "./rfid.h"
@@ -5308,7 +5329,7 @@ void interrupt_EUSART(void);
 
 void print_RFID(char *pa,char *dis);
 void check_sum(char *str, char *arr_check, int *bit16, int btc);
-# 10 "main.c" 2
+# 11 "main.c" 2
 
 
 
@@ -5334,39 +5355,125 @@ void __attribute__((picinterrupt("high_priority"))) InterruptHandlerHigh() {
         string_rfid[count] = rx_char;
         count++;
     }
+    if (INTCON3bits.INT2IF) {
+        if (PORTCbits.RC5 == 1) {
+            if (PORTCbits.RC5 == 1) {
+                if (PORTCbits.RC5 == 1) {
+                    if (PORTCbits.RC5 == 1) {
+                        card_read = 0;
+                    }
+                }
+            }
+        }
+        INTCON3bits.INT2IF = 0;
+    }
 
 }
 
-void main(void) {
+int main(void) {
     ANSEL0 = 0;
     ANSEL1 = 0;
     OSCCON = 0x72;
     while (!OSCCONbits.IOFS);
-    card_read = 0;
+
     LCD_init();
 
-
+    init_TIMER5();
+    initPWM();
     init_capture();
     init_RFID();
 
+
+
     interrupt_EUSART();
     struct Sensor_ir Values;
+    struct Motor mL, mR;
+    int PWMcycle = 199;
+    mL.power = 0;
+    mL.direction = 1;
+    mL.duty_low = (unsigned char *) (&PDC0L);
+    mL.duty_high = (unsigned char *) (&PDC0H);
+    mL.dir_pin = 0;
+    mL.period = PWMcycle;
+
+
+    mR.power = 0;
+    mR.direction = 1;
+    mR.duty_low = (unsigned char *) (&PDC1L);
+    mR.duty_high = (unsigned char *) (&PDC1H);
+    mR.dir_pin = 2;
+    mR.period = PWMcycle;
 
     while (1) {
 
-
+        int direction = 0;
 
 
         while (card_read == 0) {
-                        read_IR(&Values);
-                        print_IR(&Values);
+            read_IR(&Values);
+
+
+
+            print_IR(&Values);
+            int threshold = 50;
+            int diff = Values.left - Values.right;
+            if (Values.left > 256 | Values.right > 256) {
+                threshold = 50;
+            } else {
+                threshold = 20;
+            }
+
+            if (diff < -threshold) {
+
+                stop(&mL, &mR);
+                turnLeft(&mL, &mR);
+                _delay((unsigned long)((100)*(8000000/4000.0)));
+
+
+
+                direction = 1;
+
+            } else if (diff > threshold) {
+
+                stop(&mL, &mR);
+                turnRight(&mL, &mR);
+                _delay((unsigned long)((100)*(8000000/4000.0)));
+
+
+                direction = -1;
+            } else {
+                if ((Values.left > 100) && (Values.right > 100)) {
+                    if (direction != 0) {
+                        stop(&mL, &mR);
+                        forwards(&mL, &mR);
+
+                    }
+
+                    direction = 0;
+                } else {
+                    if (direction != 1) {
+
+                        turnRightSlow(&mL, &mR);
+                        stop(&mL, &mR);
+                        direction = -1;
+                        _delay((unsigned long)((100)*(8000000/4000.0)));
+                    }
+
+
+                }
+            }
+
+
         }
+
+
 
 
         if (card_read == 1) {
 
             print_RFID(&string_rfid[0], &string_rfid[0]);
             _delay((unsigned long)((10)*(8000000/4000.0)));
+            return 0;
         }
     }
 }
