@@ -36,24 +36,40 @@ void init_capture(void) {
  * Printing IR signal
  */
 void read_IR(struct Sensor_ir *Values) {
-//    Values->left_prev = Values->left;
-//    Values->right_prev = Values->right;
+    Values->left_prev = Values->left;
+    Values->right_prev = Values->right;
     Values->left = ((CAP2BUFH << 8) | (CAP2BUFL)); //left is cap2, i.e. lower
     Values->right = ((CAP1BUFH << 8) | (CAP1BUFL));
 
-    Values->left = Values->left / 64;
-    Values->right = Values->right / 64;
-    __delay_ms(50);
-//    if ((Values->left_prev = Values->left) && (Values->left < 50)) 
-//        {
-//            Values->left = 0;
-//        }
-//    if ((Values->right_prev = Values->right) && (Values->right < 50)) {
-//            {
-//                Values->right = 0;
-//            }
+    if ((Values->left == Values->left_prev) && (Values->left <= 200)) {
+        Values->left = 0;
+    }
 
-//        }
+    if ((Values->right == Values->right_prev) && (Values->right <= 200)) {
+        Values->right = 0;
+    }
+
+    Values->left = Values->left / 64;
+    if (Values->left > 200) {
+        Values->left = 200;
+    } //reduce un-required noise above 200
+
+    Values->right = Values->right / 64;
+    if (Values->right > 200) {
+        Values->right = 200;
+    } //reduce un-required noise above 200
+
+    // __delay_ms(50);
+    //    if ((Values->left_prev = Values->left) && (Values->left < 50)) 
+    //        {
+    //            Values->left = 0;
+    //        }
+    //    if ((Values->right_prev = Values->right) && (Values->right < 50)) {
+    //            {
+    //                Values->right = 0;
+    //            }
+
+    //        }
 }
 
 //int measureIRLeft(void)

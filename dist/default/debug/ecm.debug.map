@@ -3,24 +3,25 @@ Microchip MPLAB XC8 Compiler V2.00 ()
 Linker command line:
 
 -W-3 --edf=/Applications/microchip/xc8/v2.00/pic/dat/en_msgs.txt -cs \
-  -h+dist/default/production/ecm.production.sym \
-  --cmf=dist/default/production/ecm.production.cmf -z -Q18F4331 \
-  -o/tmp/xcicNnmjY --defsym=__MPLAB_BUILD=1 \
-  -Mdist/default/production/ecm.production.map -E1 -ver=XC8 --acfsm=1493 \
-  -ASTACK=0F2h-02ffh -pstack=STACK -ACODE=00h-01FFFh -ACONST=00h-01FFFh \
-  -ASMALLCONST=0300h-03FFhx29 -AMEDIUMCONST=0300h-01FFFh -ACOMRAM=01h-05Fh \
-  -AABS1=00h-02FFh -ABIGRAM=01h-02FFh -ARAM=060h-0FFh,0100h-01FFhx2 \
-  -ABANK0=060h-0FFh -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh \
-  -ASFR=0F60h-0FFFh -preset_vec=00h,intcode=08h,intcodelo,powerup,init \
-  -pramtop=0300h -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST \
-  -pconst=CONST -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh -pconfig=CONFIG \
+  -h+dist/default/debug/ecm.debug.sym \
+  --cmf=dist/default/debug/ecm.debug.cmf -z -Q18F4331 -o/tmp/xcsbc4SIi \
+  --defsym=__MPLAB_BUILD=1 -Mdist/default/debug/ecm.debug.map -E1 -ver=XC8 \
+  --acfsm=1493 -ASTACK=0F2h-02f3h -pstack=STACK -ACODE=00h-01DBFh \
+  -ACONST=00h-01DBFh -ASMALLCONST=0300h-03FFhx26,01D00h-01DBFh \
+  -AMEDIUMCONST=0300h-01DBFh -ACOMRAM=01h-05Fh -AABS1=00h-02F3h \
+  -ABIGRAM=01h-02F3h -ARAM=060h-0FFh,0100h-01FFh,0200h-02F3h \
+  -ABANK0=060h-0FFh -ABANK1=0100h-01FFh -ABANK2=0200h-02F3h \
+  -ASFR=0F60h-0F9Bh,0F9Dh-0FD3h,0FD5h-0FDAh,0FE0h-0FE2h,0FE8h-0FEAh,0FF0h-0FFCh \
+  -preset_vec=00h,intcode=08h,intcodelo,powerup,init -pramtop=0300h \
+  -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST -pconst=CONST \
+  -AFARRAM=00h-00h -ACONFIG=0300000h-030000Dh -pconfig=CONFIG \
   -AIDLOC=0200000h-0200007h -pidloc=IDLOC -AEEDATA=0F00000h-0F000FFh \
   -peeprom_data=EEDATA \
   -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  /tmp/xcT2Z3nDO.o dist/default/production/ecm.production.o 
+  /tmp/xcvwpJCZF.o dist/default/debug/ecm.debug.o 
 
 Object code version is 3.11
 
@@ -32,12 +33,12 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-/tmp/xcT2Z3nDO.o
+/tmp/xcvwpJCZF.o
                 init                                 88       88        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
                 config                           300000   300000        E   300000       0
-dist/default/production/ecm.production.o
+dist/default/debug/ecm.debug.o
                 intcode                               8        8       80        4       0
                 temp                                 5A       5A        1        1       1
                 smallconst                          300      300       34      180       0
@@ -191,22 +192,27 @@ UNUSED ADDRESS RANGES
         Name                Unused          Largest block    Delta
         BANK0            0000F2-0000FF                E
         BANK1            000100-0001FF              100
-        BANK2            000200-0002FF              100
+        BANK2            000200-0002F3               F4
         BIGRAM           00005B-00005F                5
-                         0000F2-0002FF              20E
+                         0000F2-0002F3              202
         CODE             000004-000007                4
                          00008C-0002FF              274
-                         001D38-001FFF              2C8
+                         001D38-001DBF               88
         COMRAM           00005B-00005F                5
         CONST            000004-000007                4
                          00008C-0002FF              274
-                         001D38-001FFF              2C8
+                         001D38-001DBF               88
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      001D38-001FFF              2C8
-        RAM              0000F2-0002FF              100
-        SFR              000F60-000FFF               A0
-        SMALLCONST       001D38-001FFF              100
-        STACK            0000F2-0002FF              20E
+        MEDIUMCONST      001D38-001DBF               88
+        RAM              0000F2-0002F3              100
+        SFR              000F60-000F9B               3C
+                         000F9D-000FD3               37
+                         000FD5-000FDA                6
+                         000FE0-000FE2                3
+                         000FE8-000FEA                3
+                         000FF0-000FFC                D
+        SMALLCONST       001D38-001DBF               88
+        STACK            0000F2-0002F3              202
 
                                   Symbol Table
 
@@ -736,7 +742,7 @@ sprintf@f                      cstackBANK0  00007C
 sprintf@fmt                    cstackBANK0  000074
 sprintf@ret                    cstackBANK0  000078
 sprintf@s                      cstackBANK0  000072
-stackhi                        (abs)        0002FF
+stackhi                        (abs)        0002F3
 stacklo                        (abs)        0000F2
 start                          init         000088
 start_initialization           cinit        001C2C

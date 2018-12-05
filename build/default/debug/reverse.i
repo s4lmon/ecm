@@ -1,4 +1,4 @@
-# 1 "ir.c"
+# 1 "reverse.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,13 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "/Applications/microchip/xc8/v2.00/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "ir.c" 2
-# 1 "./ir.h" 1
-
-
-
-
-
+# 1 "reverse.c" 2
 # 1 "/Applications/microchip/xc8/v2.00/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/xc8/v2.00/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5124,81 +5118,70 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "/Applications/microchip/xc8/v2.00/pic/include/xc.h" 2 3
-# 6 "./ir.h" 2
+# 2 "reverse.c" 2
+# 1 "./reverse.h" 1
+# 10 "./reverse.h"
+struct {
+   unsigned int forwards : 2;
+   unsigned int left : 2;
+   unsigned int right : 2;
+} Direction ;
+
+void initTimer0(void);
+void initEncoder(void);
+# 3 "reverse.c" 2
+# 1 "./motor.h" 1
 
 
 
-struct Sensor_ir {
-    unsigned int left;
-    unsigned int right;
-    unsigned int left_prev;
-    unsigned int right_prev;
 
+
+
+
+struct Motor {
+    char power;
+    char direction;
+    unsigned char *duty_low;
+    unsigned char *duty_high;
+    char dir_pin;
+    int period;
 };
 
-void init_TIMER5(void);
-void init_capture(void);
-void read_IR(struct Sensor_ir *values);
-# 1 "ir.c" 2
 
+void initTimer0(void);
+void initPWM(void);
+void setMotorPWM(struct Motor *m);
+void accelerate(struct Motor *m);
+void decelerate(struct Motor *m);
+void stop(struct Motor *mL, struct Motor *mR) ;
+void turnLeft(struct Motor *mL, struct Motor *mR);
+void turnRight(struct Motor *mL, struct Motor *mR);
+void forwards(struct Motor *mL, struct Motor *mR);
+void turnRightSlow(struct Motor *mL, struct Motor *mR) ;
+# 4 "reverse.c" 2
 
-
-
-
-void init_TIMER5(void) {
-
-
-
-
-    T5CON = 0;
-    T5CONbits.T5SEN = 0;
-    T5CONbits.RESEN = 0;
-    T5CONbits.T5PS = 0b10;
-    T5CONbits.T5MOD = 0;
-    T5CONbits.T5SYNC = 0;
-    T5CONbits.TMR5CS = 0;
-    T5CONbits.TMR5ON = 1;
-
+void initTimer0(void) {
+    T0CONbits.TMR0ON = 1;
+    T0CONbits.T016BIT = 0;
+    T0CONbits.T0CS = 1;
+    T0CONbits.PSA = 0;
+    T0CONbits.T0PS = 0b001;
+    T0CONbits.T0SE = 0;
+    TMR0L = 0;
+    TMR0H = 0;
 }
 
+void initEncoder(void) {
 
 
 
-void init_capture(void) {
-
-    LATA = 0;
-    TRISA = 0b00001100;
-    CAP1CON = 0b01000110;
-    CAP2CON = 0b01000110;
-    T5CON = 0b00001001;
-    DFLTCON = 0b00011000;
-}
+    INTCON3bits.INT2IE = 1;
+    INTCON3bits.INT2IP = 1;
+    INTCON2bits.INTEDG2 = 1;
+    INTCON3bits.INT2IF = 0;
 
 
 
-
-void read_IR(struct Sensor_ir *Values) {
-    Values->left_prev = Values->left;
-    Values->right_prev = Values->right;
-    Values->left = ((CAP2BUFH << 8) | (CAP2BUFL));
-    Values->right = ((CAP1BUFH << 8) | (CAP1BUFL));
-
-    if ((Values->left == Values->left_prev) && (Values->left <= 200)) {
-        Values->left = 0;
-    }
-
-    if ((Values->right == Values->right_prev) && (Values->right <= 200)) {
-        Values->right = 0;
-    }
-
-    Values->left = Values->left / 64;
-    if (Values->left > 200) {
-        Values->left = 200;
-    }
-
-    Values->right = Values->right / 64;
-    if (Values->right > 200) {
-        Values->right = 200;
-    }
-# 73 "ir.c"
+    LATCbits.LATC5 = 0;
+    TRISCbits.RC5 = 0;
 }

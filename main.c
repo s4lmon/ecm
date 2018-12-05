@@ -9,12 +9,13 @@
 #include "ir.h"
 #include "motor.h"
 #include "rfid.h"
-
+#include "reverse.h"
 
 
 volatile char card_read; //value will change during the code at any time therefore it must be a volatile character 
 char string_rfid[17]; //global variable because it is used in the RFID interrupt and called in the main loop 
 //
+volatile char count_encoder = 0;
 
 void __interrupt(high_priority) InterruptHandlerHigh() {
 
@@ -33,6 +34,13 @@ void __interrupt(high_priority) InterruptHandlerHigh() {
         string_rfid[count] = rx_char; //store the character read by the RFID tag into a character string
         count++;
     }
+
+    if (INTCON3bits.INT2IF) {
+        count_encoder++; // Increment the encoder counter
+
+        INTCON3bits.INT2IF = 0; // Clear the encoder flag
+    }
+    
     if (INTCON3bits.INT2IF) { //external interrupt flag
         if (PORTCbits.RC5 == 1) { //Ask 4 times for the RC5 input to prevent button false positives
             if (PORTCbits.RC5 == 1) {
@@ -48,7 +56,7 @@ void __interrupt(high_priority) InterruptHandlerHigh() {
 
 }
 
-int main(void) {
+void main(void) {
     ANSEL0 = 0; //Override start up analogue mode to digital instead
     ANSEL1 = 0;
     OSCCON = 0x72;
@@ -60,6 +68,7 @@ int main(void) {
     initPWM();
     init_capture();
     init_RFID();
+    initEncoder();
 
 
 
@@ -92,13 +101,13 @@ int main(void) {
             //            Values.left = measureIRLeft();
             //            Values.right = measureIRRight();
 
-            print_IR(&Values);
+//            print_IR(&Values);
             int threshold = 50;
             int diff = Values.left - Values.right;
             if (Values.left > 256 | Values.right > 256) {
                 threshold = 50;
             } else {
-                threshold = 20;
+                threshold = 10;
             }
 
             if (diff < -threshold) {
@@ -120,9 +129,9 @@ int main(void) {
 
                 direction = -1;
             } else { //either forwards or signal lost
-                if ((Values.left > 100) && (Values.right > 100)) {
+                if ((Values.left > 150) && (Values.right > 150)) {
                     if (direction != 0) {
-                        stop(&mL, &mR);
+                        //stop(&mL, &mR);
                         forwards(&mL, &mR);
                         //__delay_ms(TIME);
                     }
@@ -131,7 +140,7 @@ int main(void) {
                 } else {
                     if (direction != 1) {
 
-                        turnRightSlow(&mL, &mR);
+                        turnRight(&mL, &mR);
                         stop(&mL, &mR);
                         direction = -1;
                         __delay_ms(TIME);
@@ -148,10 +157,10 @@ int main(void) {
 
 
         if (card_read == 1) { //the interrupt for the RFID tag sets card_read to 1 when the card is read
-
+            stop(&mL, &mR);
             print_RFID(&string_rfid[0], &string_rfid[0]); //sends the significant characters read from the RFID to the LCD
             __delay_ms(10);
-            return 0;
+            //            return 0;
         }
     }
 }

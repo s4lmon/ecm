@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V2.00 build -1524193055 
-                                                                                               Wed Dec  5 09:54:41 2018
+                                                                                               Wed Dec  5 09:55:06 2018
 
 Microchip Technology Omniscient Code Generator v2.00 (Free mode) build 20180527130849
      1                           	processor	18F4331
@@ -102,54 +102,54 @@ Microchip Technology Omniscient Code Generator v2.00 (Free mode) build 201805271
     88                           ; SFR Addresses
     89  0000                     _TRISCbits	set	3988
     90  0000                     _LATCbits	set	3979
-    91  0000                     _INTCON2bits	set	4081
-    92  0000                     _TMR0H	set	4055
-    93  0000                     _TMR0L	set	4054
-    94  0000                     _T0CONbits	set	4053
-    95  0000                     _INTCONbits	set	4082
-    96  0000                     _PIE1bits	set	3997
-    97  0000                     _RCSTAbits	set	4011
-    98  0000                     _TXSTAbits	set	4012
-    99  0000                     _BAUDCONbits	set	4010
-   100  0000                     _SPBRGH	set	4016
-   101  0000                     _SPBRG	set	4015
-   102  0000                     _LATB	set	3978
-   103  0000                     _PTPERH	set	3962
-   104  0000                     _PTPERL	set	3963
-   105  0000                     _PWMCON1	set	3950
-   106  0000                     _PWMCON0	set	3951
-   107  0000                     _PTCON1	set	3966
-   108  0000                     _PTCON0	set	3967
-   109  0000                     _TRISB	set	3987
-   110  0000                     _CAP1BUFL	set	3944
-   111  0000                     _CAP1BUFH	set	3945
-   112  0000                     _CAP2BUFL	set	3942
-   113  0000                     _CAP2BUFH	set	3943
-   114  0000                     _DFLTCON	set	3936
-   115  0000                     _CAP2CON	set	3938
-   116  0000                     _CAP1CON	set	3939
-   117  0000                     _T5CONbits	set	4023
-   118  0000                     _T5CON	set	4023
-   119  0000                     _OSCCONbits	set	4051
-   120  0000                     _OSCCON	set	4051
-   121  0000                     _ANSEL1	set	4025
-   122  0000                     _ANSEL0	set	4024
-   123  0000                     _INTCON3bits	set	4080
-   124  0000                     _RCREG	set	4014
-   125  0000                     _PIR1bits	set	3998
-   126  0000                     _TRISD	set	3989
-   127  0000                     _TRISC	set	3988
-   128  0000                     _TRISA	set	3986
-   129  0000                     _LATD	set	3980
-   130  0000                     _LATC	set	3979
-   131  0000                     _LATA	set	3977
-   132  0000                     _PORTAbits	set	3968
-   133  0000                     _PORTDbits	set	3971
-   134  0000                     _PORTCbits	set	3970
-   135  0000                     _PDC1H	set	3958
-   136  0000                     _PDC1L	set	3959
-   137  0000                     _PDC0H	set	3960
-   138  0000                     _PDC0L	set	3961
+    91  0000                     _LATB	set	3978
+    92  0000                     _PTPERH	set	3962
+    93  0000                     _PTPERL	set	3963
+    94  0000                     _PWMCON1	set	3950
+    95  0000                     _PWMCON0	set	3951
+    96  0000                     _PTCON1	set	3966
+    97  0000                     _PTCON0	set	3967
+    98  0000                     _TRISB	set	3987
+    99  0000                     _CAP1BUFL	set	3944
+   100  0000                     _CAP1BUFH	set	3945
+   101  0000                     _CAP2BUFL	set	3942
+   102  0000                     _CAP2BUFH	set	3943
+   103  0000                     _DFLTCON	set	3936
+   104  0000                     _CAP2CON	set	3938
+   105  0000                     _CAP1CON	set	3939
+   106  0000                     _TRISD	set	3989
+   107  0000                     _TRISC	set	3988
+   108  0000                     _TRISA	set	3986
+   109  0000                     _LATD	set	3980
+   110  0000                     _LATC	set	3979
+   111  0000                     _LATA	set	3977
+   112  0000                     _PORTAbits	set	3968
+   113  0000                     _PORTDbits	set	3971
+   114  0000                     _PORTCbits	set	3970
+   115  0000                     _PDC1H	set	3958
+   116  0000                     _PDC1L	set	3959
+   117  0000                     _PDC0H	set	3960
+   118  0000                     _PDC0L	set	3961
+   119  0000                     _PIE1bits	set	3997
+   120  0000                     _RCSTAbits	set	4011
+   121  0000                     _TXSTAbits	set	4012
+   122  0000                     _BAUDCONbits	set	4010
+   123  0000                     _SPBRGH	set	4016
+   124  0000                     _SPBRG	set	4015
+   125  0000                     _T5CONbits	set	4023
+   126  0000                     _T5CON	set	4023
+   127  0000                     _OSCCONbits	set	4051
+   128  0000                     _OSCCON	set	4051
+   129  0000                     _ANSEL1	set	4025
+   130  0000                     _ANSEL0	set	4024
+   131  0000                     _RCREG	set	4014
+   132  0000                     _PIR1bits	set	3998
+   133  0000                     _TMR0H	set	4055
+   134  0000                     _TMR0L	set	4054
+   135  0000                     _T0CONbits	set	4053
+   136  0000                     _INTCON2bits	set	4081
+   137  0000                     _INTCONbits	set	4082
+   138  0000                     _INTCON3bits	set	4080
    139                           
    140                           	psect	smallconst
    141  000300                     __psmallconst:
@@ -7124,7 +7124,7 @@ Auto Spaces:
     COMRAM           94     84      89
     BANK0           160     90     146
     BANK1           256      0       0
-    BANK2           256      0       0
+    BANK2           244      0       0
 
 Pointer List with Targets:
 
@@ -7666,27 +7666,37 @@ Call Graph Tables:
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
-BIGRAM             2FF      0       0      10        0.0%
+BIGRAM             2F3      0       0      10        0.0%
 EEDATA             100      0       0       0        0.0%
-BITBANK2           100      0       0       8        0.0%
-BANK2              100      0       0       9        0.0%
 BITBANK1           100      0       0       6        0.0%
 BANK1              100      0       0       7        0.0%
-BITBANK0            A0      0       0       4        0.0%
-BANK0               A0     5A      92       5       91.2%
+BITBANK2            F4      0       0       8        0.0%
+BANK2               F4      0       0       9        0.0%
+BITBANK0            A0      0       0       3        0.0%
+BANK0               A0     5A      92       4       91.2%
 BITCOMRAM           5E      0       0       0        0.0%
 COMRAM              5E     54      59       1       94.7%
+BITSFR_5             0      0       0     200        0.0%
+SFR_5                0      0       0     200        0.0%
+BITSFR_4             0      0       0     200        0.0%
+SFR_4                0      0       0     200        0.0%
+BITSFR_3             0      0       0     200        0.0%
+SFR_3                0      0       0     200        0.0%
+BITSFR_2             0      0       0     200        0.0%
+SFR_2                0      0       0     200        0.0%
+BITSFR_1             0      0       0     200        0.0%
+SFR_1                0      0       0     200        0.0%
 BITSFR               0      0       0     200        0.0%
 SFR                  0      0       0     200        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      EB       3        0.0%
+ABS                  0      0      EB       5        0.0%
 DATA                 0      0      EB      11        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.00 build -1524193055 
-Symbol Table                                                                                   Wed Dec  5 09:54:41 2018
+Symbol Table                                                                                   Wed Dec  5 09:55:06 2018
 
                  print_RFID@pa 000B                             l50 1BA2                             l43 1BE4  
                            l45 1BF6                             l49 1BC0                   ___awdiv@sign 0011  

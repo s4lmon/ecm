@@ -27,6 +27,8 @@
     <itemPath>motor.c</itemPath>
     <itemPath>rfid.h</itemPath>
     <itemPath>rfid.c</itemPath>
+    <itemPath>reverse.c</itemPath>
+    <itemPath>reverse.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

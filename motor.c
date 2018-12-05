@@ -1,17 +1,9 @@
 #include "motor.h"
 #define POWER 100
-#define POWER2 50
-#define POWER3 50
-void initTimer0(void) {
-    T0CONbits.TMR0ON = 1; //turn on timer0
-    T0CONbits.T016BIT = 0; // 16bit mode
-    T0CONbits.T0CS = 1; // Transition on T0CKI pin input edge
-    T0CONbits.PSA = 0; //Enable prescaler
-    T0CONbits.T0PS = 0b001; // set prescaler value to 4
-    T0CONbits.T0SE = 0; // Increment on low-to-high transition on T0CKI pin
-    TMR0L = 0; //Initialise TMR0L and TMR0H to 0, these are re-set to 0 every time the back_trace_counter step increases
-    TMR0H = 0;
-}
+#define POWER2 60
+#define POWER3 60
+
+
 
 /*
  * To initialise motor PWM
@@ -54,6 +46,13 @@ void setMotorPWM(struct Motor *m) {
 
 void accelerate(struct Motor *m) {
     for (m->power; (m->power) <= POWER; m->power++) { //increase motor power until 100
+        setMotorPWM(m); //pass pointer to setMotorSpeed function (not &m here)
+        __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
+    }
+}
+
+void accelerate2(struct Motor *m) {
+    for (m->power; (m->power) <= POWER2; m->power++) { //increase motor power until 100
         setMotorPWM(m); //pass pointer to setMotorSpeed function (not &m here)
         __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
     }
@@ -121,6 +120,7 @@ void turnRight(struct Motor *mL, struct Motor *mR) {
         __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
     }
 }
+
 void turnRightSlow(struct Motor *mL, struct Motor *mR) {
     //setMotorStop(mL);
     //setMotorStop(mR);
@@ -155,7 +155,19 @@ void forwards(struct Motor *mL, struct Motor *mR) {
         setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
         __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
     }
-}
+        mR->direction = 0;
+        while (mL->power < POWER2 || mR->power < POWER2) {
+            if (mL->power < POWER2) {
+                mL->power++;
+            }
+            if (mR->power < POWER2) {
+                mR->power++;
+            }
+            setMotorPWM(mL); //pass pointer to setMotorSpeed function (not &m here)
+            setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
+            __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
+        }
+    }
 
 
 

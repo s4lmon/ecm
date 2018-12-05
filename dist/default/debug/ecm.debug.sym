@@ -185,7 +185,7 @@ dtoa@fp 21 0 COMRAM 1
 utoa@fp 21 0 COMRAM 1
 pad@buf 18 0 COMRAM 1
 _initEncoder 1D28 0 CODE 0
-stackhi 2FF 0 ABS 0
+stackhi 2F3 0 ABS 0
 __end_of_turnRight 1732 0 CODE 0
 __HcstackBANK0 0 0 ABS 0
 __LcstackBANK0 0 0 ABS 0
@@ -565,9 +565,9 @@ cstackCOMRAM 1 5A COMRAM 1 1
 cstackBANK0 60 F1 BANK0 60 1
 text0 334 1D37 CODE 334 0
 %locals
-dist/default/production/ecm.production.o
+dist/default/debug/ecm.debug.o
 /Applications/microchip/xc8/v2.00/pic/include/pic18f4331.h
-/tmp/xcWE4UAv9
+/tmp/xc3a6HtU9
 2504 1C2C 0 CODE 0
 2506 1C2C 0 CODE 0
 2509 1C2C 0 CODE 0
