@@ -35,28 +35,71 @@ void __interrupt(high_priority) InterruptHandlerHigh() {
         count++;
     }
 
-    if (INTCON3bits.INT2IF) {
-        count_encoder++; // Increment the encoder counter
+//    if (INTCONbits.INT0IF) {
+//        count_encoder++; // Increment the encoder counter
+//
+//        INTCONbits.INT0IF = 0; // Clear the encoder flag
+//    }
 
-        INTCON3bits.INT2IF = 0; // Clear the encoder flag
-    }
-    
-    if (INTCON3bits.INT2IF) { //external interrupt flag
-        if (PORTCbits.RC5 == 1) { //Ask 4 times for the RC5 input to prevent button false positives
-            if (PORTCbits.RC5 == 1) {
-                if (PORTCbits.RC5 == 1) {
-                    if (PORTCbits.RC5 == 1) {
-                        card_read = 0; //re-start the searching routine
-                    }
-                }
+    if (INTCONbits.INT0IF) { //external interrupt flag
+
+        if (PORTCbits.RC3 == 1) {
+            if (PORTCbits.RC3 == 1) {
+
+
+                card_read = 0; //re-start the searching routine
+
             }
         }
-        INTCON3bits.INT2IF = 0; //clear the interrupt flag
+
+        INTCONbits.INT0IF = 0; //clear the interrupt flag
     }
 
 }
 
 void main(void) {
+    //    ANSEL0 = 0; //Override start up analogue mode to digital instead
+    //    ANSEL1 = 0;
+    //    OSCCON = 0x72;
+    //    while (!OSCCONbits.IOFS);
+    //
+    //    LCD_init();
+    //    init_TIMER5();
+    //    init_capture();
+    //    init_RFID();
+    //    init_Timer0();
+    //    //initEncoder();
+    //    interrupt_EUSART();
+    //    
+    //    
+    //    struct Sensor_ir Values;
+    //    struct Motor mL, mR;
+    //    int PWMcycle = 199;
+    //    mL.power = 0; //zero power to start
+    //    mL.direction = 0; //set default motor direction, forward
+    //    mL.duty_low = (unsigned char *) (&PDC0L); //store address of PWM duty low byte
+    //    mL.duty_high = (unsigned char *) (&PDC0H); //store address of PWM duty high byte
+    //    mL.dir_pin = 0; //pin RB0/PWM0 controls direction
+    //    mL.period = PWMcycle; //store PWMperiod for motor
+    //
+    //    //same for motorR but different PWM registers and direction pin
+    //    mR.power = 0;
+    //    mR.direction = 0;
+    //    mR.duty_low = (unsigned char *) (&PDC1L);
+    //    mR.duty_high = (unsigned char *) (&PDC1H);
+    //    mR.dir_pin = 2; //pin RB2/PWM0 controls direction
+    //    mR.period = PWMcycle;
+    //    
+    //    initPWM();
+    //    stop(&mL,&mR);
+    //    
+
+    //    card_read = 0;
+    //            
+    char counter = 0;
+    int forwardsDirection[50];
+    //        int forwardsTime[50];
+    //        struct Direction There;
     ANSEL0 = 0; //Override start up analogue mode to digital instead
     ANSEL1 = 0;
     OSCCON = 0x72;
@@ -68,7 +111,6 @@ void main(void) {
     initPWM();
     init_capture();
     init_RFID();
-    initEncoder();
 
 
 
@@ -91,7 +133,18 @@ void main(void) {
     mR.dir_pin = 2; //pin RB2/PWM0 controls direction
     mR.period = PWMcycle;
 
+    INTCONbits.INT0IE = 1; 
+    
+    card_read = 3;
+
     while (1) {
+        while (card_read == 3) {
+            LCD_line(1);
+            char buf[16];
+            sprintf(buf, "Ready");
+            LCD_string(buf);
+            //            while (PORTCbits.RC3 == 0);
+        }
 
         int direction = 0;
         //Searching for IR emitter 
@@ -101,7 +154,16 @@ void main(void) {
             //            Values.left = measureIRLeft();
             //            Values.right = measureIRRight();
 
-//            print_IR(&Values);
+            print_IR(&Values);
+            //            LCD_clear();
+            //            char buf[16];
+            //            LCD_line(1);
+            //            sprintf(buf, "Left: %u", count_encoder);
+            //            LCD_string(buf);
+            //
+            //            __delay_ms(50);
+            //            __delay_ms(50);
+
             int threshold = 50;
             int diff = Values.left - Values.right;
             if (Values.left > 256 | Values.right > 256) {
@@ -113,8 +175,14 @@ void main(void) {
             if (diff < -threshold) {
                 //if (direction != 1) {
                 stop(&mL, &mR);
+                forwardsDirection[counter] = direction;
+                counter++;
+
+                //                counter = reverse_routine(&forwardsDirection[counter], &forwardsTime[counter], direction, counter);
+
                 turnLeft(&mL, &mR);
-                __delay_ms(TIME);
+                //Storing previous path and increases back trace counter)
+
                 //}
 
 
@@ -123,27 +191,39 @@ void main(void) {
             } else if (diff > threshold) {
                 //if (direction != -1) {
                 stop(&mL, &mR);
+                //                counter = reverse_routine(&forwardsDirection[counter], &forwardsTime[counter], direction, counter);
+                forwardsDirection[counter] = direction;
+                counter++;
                 turnRight(&mL, &mR);
-                __delay_ms(TIME);
+
+
                 //}
 
-                direction = -1;
+                direction = 2;
             } else { //either forwards or signal lost
                 if ((Values.left > 150) && (Values.right > 150)) {
                     if (direction != 0) {
-                        //stop(&mL, &mR);
+                        stop(&mL, &mR);
+                        //                        counter = reverse_routine(&forwardsDirection[counter], &forwardsTime[counter], direction, counter);
+                        forwardsDirection[counter] = direction;
+                        counter++;
                         forwards(&mL, &mR);
+
                         //__delay_ms(TIME);
                     }
 
                     direction = 0;
                 } else {
                     if (direction != 1) {
+                        stop(&mL, &mR);
+                        forwardsDirection[counter] = direction;
+                        counter++;
+                        //counter = reverse_routine(&forwardsDirection[counter], &forwardsTime[counter], direction, counter);
 
                         turnRight(&mL, &mR);
-                        stop(&mL, &mR);
-                        direction = -1;
-                        __delay_ms(TIME);
+
+                        direction = 2;
+
                     }
 
 
@@ -156,12 +236,49 @@ void main(void) {
 
 
 
-        if (card_read == 1) { //the interrupt for the RFID tag sets card_read to 1 when the card is read
+        while (card_read == 1) { //the interrupt for the RFID tag sets card_read to 1 when the card is read
             stop(&mL, &mR);
+            //            counter = reverse_routine(&forwardsDirection[counter], &forwardsTime[counter], direction, counter);
+            forwardsDirection[counter] = direction;
+            counter++;
             print_RFID(&string_rfid[0], &string_rfid[0]); //sends the significant characters read from the RFID to the LCD
             __delay_ms(10);
-            //            return 0;
+
+            //        while (((TMR0H << 8) | TMR0L) <= forwardsTime[counter]) {      
+            for (char ii = 0; ii < counter; ii++) {
+
+                //                TMR0H = 0;
+                //                TMR0L = 0;
+                if (forwardsDirection[counter - ii] == 1) {
+                    turnRight(&mL, &mR);
+                } else if (forwardsDirection[counter - ii] == 2) {
+                    turnLeft(&mL, &mR);
+                } else if (forwardsDirection[counter - ii] == 0) {
+                    backwards(&mL, &mR);
+
+                }
+                stop(&mL, &mR);
+
+            }
+            stop(&mL, &mR);
+
+
         }
+        //            
+        //        }
+        //        while (card_read == 2) {
+        //        
+        //            //            }
+        //            LCD_clear();
+        //            char buf[16];
+        //            LCD_line(1);
+        //            sprintf(buf, "Ready");
+        //            LCD_string(buf);
+        //            __delay_ms(50);
+        //        }
+
+        //            return 0;
+
     }
 }
 
