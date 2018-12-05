@@ -134,10 +134,10 @@ void main(void) {
 
             int threshold = 50;
             int diff = Values.left - Values.right;
-            if (Values.left > 256 | Values.right > 256) {
+            if (Values.left > 190 | Values.right > 190) {
                 threshold = 50;
             } else {
-                threshold = 10;
+                threshold = 5;
             }
 
             if (diff < -threshold) {
@@ -146,20 +146,13 @@ void main(void) {
                 forwardsDirection[counter] = direction;
                 counter++;
 
-                //                counter = reverse_routine(&forwardsDirection[counter], &forwardsTime[counter], direction, counter);
-
                 turnLeft(&mL, &mR);
-                //Storing previous path and increases back trace counter)
 
-                //}
-
-
-                direction = 1;
+                direction = 2;
 
             } else if (diff > threshold) {
-                //if (direction != -1) {
+      
                 stop(&mL, &mR);
-                //                counter = reverse_routine(&forwardsDirection[counter], &forwardsTime[counter], direction, counter);
                 forwardsDirection[counter] = direction;
                 counter++;
                 turnRight(&mL, &mR);
@@ -167,7 +160,7 @@ void main(void) {
 
                 //}
 
-                direction = 2;
+                direction = 1;
             } else { //either forwards or signal lost
                 if ((Values.left > 150) && (Values.right > 150)) {
                     if (direction != 0) {
