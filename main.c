@@ -58,44 +58,8 @@ void __interrupt(high_priority) InterruptHandlerHigh() {
 }
 
 void main(void) {
-    //    ANSEL0 = 0; //Override start up analogue mode to digital instead
-    //    ANSEL1 = 0;
-    //    OSCCON = 0x72;
-    //    while (!OSCCONbits.IOFS);
-    //
-    //    LCD_init();
-    //    init_TIMER5();
-    //    init_capture();
-    //    init_RFID();
-    //    init_Timer0();
-    //    //initEncoder();
-    //    interrupt_EUSART();
-    //    
-    //    
-    //    struct Sensor_ir Values;
-    //    struct Motor mL, mR;
-    //    int PWMcycle = 199;
-    //    mL.power = 0; //zero power to start
-    //    mL.direction = 0; //set default motor direction, forward
-    //    mL.duty_low = (unsigned char *) (&PDC0L); //store address of PWM duty low byte
-    //    mL.duty_high = (unsigned char *) (&PDC0H); //store address of PWM duty high byte
-    //    mL.dir_pin = 0; //pin RB0/PWM0 controls direction
-    //    mL.period = PWMcycle; //store PWMperiod for motor
-    //
-    //    //same for motorR but different PWM registers and direction pin
-    //    mR.power = 0;
-    //    mR.direction = 0;
-    //    mR.duty_low = (unsigned char *) (&PDC1L);
-    //    mR.duty_high = (unsigned char *) (&PDC1H);
-    //    mR.dir_pin = 2; //pin RB2/PWM0 controls direction
-    //    mR.period = PWMcycle;
-    //    
-    //    initPWM();
-    //    stop(&mL,&mR);
-    //    
-
-    //    card_read = 0;
-    //            
+  
+           
     char counter = 0;
     int forwardsDirection[50];
     //        int forwardsTime[50];
@@ -133,12 +97,16 @@ void main(void) {
     mR.dir_pin = 2; //pin RB2/PWM0 controls direction
     mR.period = PWMcycle;
 
+    forwards(&mL,&mR);
+    stop(&mL, &mR);
+    stop(&mL, &mR);
     INTCONbits.INT0IE = 1; 
     
     card_read = 3;
 
     while (1) {
         while (card_read == 3) {
+//            stop(&mL, &mR);
             LCD_line(1);
             char buf[16];
             sprintf(buf, "Ready");
