@@ -1,9 +1,8 @@
 #include "motor.h"
-#define POWER 100
-#define POWER2 60
-#define POWER3 60
-
-
+#define POWER 70
+#define POWER2 70
+#define POWER3 80
+#define DELAYTIME 300
 
 /*
  * To initialise motor PWM
@@ -69,19 +68,29 @@ void decelerate(struct Motor *m) {
 // use setMotorPWM to perform low level update
 // bring the robot base to a stop
 
-void stop(struct Motor *mL, struct Motor *mR) {
-    // mL->direction = 0;
-    // mR->direction = 0;
-    while (mL->power > 0 || mR->power > 0) {
-        if (mL->power > 0) {
-            mL->power--;
-        }
-        if (mR->power > 0) {
-            mR->power--;
-        }
-        setMotorPWM(mL); //pass pointer to setMotorSpeed function (not &m here)
-        setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
-        __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
+void stop(struct Motor *mL, struct Motor *mR)
+{
+    // While either motor is more than zero
+    // ----------------------------------------------------------------------
+    while (((mR->power) > 0)||((mL->power) > 0))
+    {
+        // Check to see if either motor is zero, and decrement respectively
+        // ------------------------------------------------------------------
+//        if ((mR->power) > 0)  // If right still more than zero
+//        {
+//            (mR->power)--;      
+//        }
+//        if ((mL->power) > 0)  // If left still more than zero
+//        {
+//            (mL->power)--;
+//        }   
+        mL->power = 0;
+        mR->power = 0;
+        // Update PWM for each
+        // ------------------------------------------------------------------
+        setMotorPWM(mL);
+        setMotorPWM(mR);
+        __delay_ms(1);
     }
 }
 
@@ -101,6 +110,7 @@ void turnLeft(struct Motor *mL, struct Motor *mR) {
         setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
         __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
     }
+
 }
 
 void turnRight(struct Motor *mL, struct Motor *mR) {
@@ -121,24 +131,24 @@ void turnRight(struct Motor *mL, struct Motor *mR) {
     }
 }
 
-void turnRightSlow(struct Motor *mL, struct Motor *mR) {
-    //setMotorStop(mL);
-    //setMotorStop(mR);
-    mL->direction = 1;
-    mR->direction = 0;
-    while (mL->power < POWER3 || mR->power < POWER3) {
-        if (mL->power < POWER3) {
-            mL->power++;
-        }
-        if (mR->power < POWER3
-                ) {
-            mR->power++;
-        }
-        setMotorPWM(mL); //pass pointer to setMotorSpeed function (not &m here)
-        setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
-        __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
-    }
-}
+//void turnRightSlow(struct Motor *mL, struct Motor *mR) {
+//    //setMotorStop(mL);
+//    //setMotorStop(mR);
+//    mL->direction = 1;
+//    mR->direction = 0;
+//    while (mL->power < POWER3 || mR->power < POWER3) {
+//        if (mL->power < POWER3) {
+//            mL->power++;
+//        }
+//        if (mR->power < POWER3
+//                ) {
+//            mR->power++;
+//        }
+//        setMotorPWM(mL); //pass pointer to setMotorSpeed function (not &m here)
+//        setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
+//        __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
+//    }
+//}
 // both motors forward and up to full power
 
 void forwards(struct Motor *mL, struct Motor *mR) {
@@ -154,22 +164,38 @@ void forwards(struct Motor *mL, struct Motor *mR) {
         setMotorPWM(mL); //pass pointer to setMotorSpeed function (not &m here)
         setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
         __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
+        //    }
+        //        mR->direction = 0;
+        //        while (mL->power < POWER2 || mR->power < POWER2) {
+        //            if (mL->power < POWER2) {
+        //                mL->power++;
+        //            }
+        //            if (mR->power < POWER2) {
+        //                mR->power++;
+        //            }
+        //            setMotorPWM(mL); //pass pointer to setMotorSpeed function (not &m here)
+        //            setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
+        //            __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
+        //        }
     }
-        mR->direction = 0;
-        while (mL->power < POWER2 || mR->power < POWER2) {
-            if (mL->power < POWER2) {
-                mL->power++;
-            }
-            if (mR->power < POWER2) {
-                mR->power++;
-            }
-            setMotorPWM(mL); //pass pointer to setMotorSpeed function (not &m here)
-            setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
-            __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
+}
+
+void backwards(struct Motor *mL, struct Motor *mR) {
+    mL->direction = 1;
+    mR->direction = 1;
+    while (mL->power < POWER || mR->power < POWER) {
+        if (mL->power < POWER) {
+            mL->power++;
         }
+        if (mR->power < POWER) {
+            mR->power++;
+        }
+        setMotorPWM(mL); //pass pointer to setMotorSpeed function (not &m here)
+        setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
+        __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
+
     }
-
-
+}
 
 
 

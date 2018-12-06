@@ -24,6 +24,7 @@ void stop(struct Motor *mL, struct Motor *mR) ;
 void turnLeft(struct Motor *mL, struct Motor *mR);
 void turnRight(struct Motor *mL, struct Motor *mR);
 void forwards(struct Motor *mL, struct Motor *mR);
+void backwards(struct Motor *mL, struct Motor *mR);
 void turnRightSlow(struct Motor *mL, struct Motor *mR) ;
 
 
