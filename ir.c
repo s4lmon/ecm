@@ -36,6 +36,7 @@ void init_capture(void) {
  * Printing IR signal
  */
 void read_IR(struct Sensor_ir *Values) {
+
     Values->left_prev = Values->left;
     Values->right_prev = Values->right;
     Values->left = ((CAP2BUFH << 8) | (CAP2BUFL)); //left is cap2, i.e. lower
@@ -58,7 +59,6 @@ void read_IR(struct Sensor_ir *Values) {
     if (Values->right > 200) {
         Values->right = 200;
     } //reduce un-required noise above 200
-
     // __delay_ms(50);
     //    if ((Values->left_prev = Values->left) && (Values->left < 50)) 
     //        {
