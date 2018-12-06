@@ -5,6 +5,7 @@
 #define _XTAL_FREQ 8000000
 #define PWMPERIOD 199
 #define TIME 100
+#define DELAY 1
 #include "lcd.h"
 #include "ir.h"
 #include "motor.h"
@@ -35,11 +36,11 @@ void __interrupt(high_priority) InterruptHandlerHigh() {
         count++;
     }
 
-//    if (INTCONbits.INT0IF) {
-//        count_encoder++; // Increment the encoder counter
-//
-//        INTCONbits.INT0IF = 0; // Clear the encoder flag
-//    }
+    //    if (INTCONbits.INT0IF) {
+    //        count_encoder++; // Increment the encoder counter
+    //
+    //        INTCONbits.INT0IF = 0; // Clear the encoder flag
+    //    }
 
     if (INTCONbits.INT0IF) { //external interrupt flag
 
@@ -58,8 +59,8 @@ void __interrupt(high_priority) InterruptHandlerHigh() {
 }
 
 void main(void) {
-  
-           
+
+
     char counter = 0;
     int forwardsDirection[50];
     //        int forwardsTime[50];
@@ -97,16 +98,16 @@ void main(void) {
     mR.dir_pin = 2; //pin RB2/PWM0 controls direction
     mR.period = PWMcycle;
 
-    forwards(&mL,&mR);
+    forwards(&mL, &mR);
     stop(&mL, &mR);
     stop(&mL, &mR);
-    INTCONbits.INT0IE = 1; 
-    
+    INTCONbits.INT0IE = 1;
+
     card_read = 3;
 
     while (1) {
         while (card_read == 3) {
-//            stop(&mL, &mR);
+            //            stop(&mL, &mR);
             LCD_line(1);
             char buf[16];
             sprintf(buf, "Ready");
@@ -134,64 +135,49 @@ void main(void) {
 
             int threshold = 50;
             int diff = Values.left - Values.right;
-            if (Values.left > 190 | Values.right > 190) {
-                threshold = 50;
+            if (Values.left > 100 | Values.right > 100) {
+                threshold = 20;
             } else {
                 threshold = 5;
             }
 
-            if (diff < -threshold) {
-                //if (direction != 1) {
+            if ((diff < -threshold)) {
                 stop(&mL, &mR);
                 forwardsDirection[counter] = direction;
                 counter++;
-
                 turnLeft(&mL, &mR);
-
-                direction = 2;
-
+                __delay_ms(DELAY);
+                direction = 1;
             } else if (diff > threshold) {
-      
                 stop(&mL, &mR);
                 forwardsDirection[counter] = direction;
                 counter++;
                 turnRight(&mL, &mR);
+                __delay_ms(DELAY);
 
-
-                //}
-
-                direction = 1;
+                direction = 2;
             } else { //either forwards or signal lost
-                if ((Values.left > 150) && (Values.right > 150)) {
+                if ((Values.left > 199) | (Values.right > 199)) {
                     if (direction != 0) {
                         stop(&mL, &mR);
-                        //                        counter = reverse_routine(&forwardsDirection[counter], &forwardsTime[counter], direction, counter);
                         forwardsDirection[counter] = direction;
                         counter++;
                         forwards(&mL, &mR);
-
-                        //__delay_ms(TIME);
+                        __delay_ms(DELAY);
+                        direction = 0;
                     }
-
-                    direction = 0;
                 } else {
-                    if (direction != 1) {
-                        stop(&mL, &mR);
-                        forwardsDirection[counter] = direction;
-                        counter++;
-                        //counter = reverse_routine(&forwardsDirection[counter], &forwardsTime[counter], direction, counter);
+                    stop(&mL, &mR);
+                    forwardsDirection[counter] = direction;
+                    counter++;
+                    turnRight(&mL, &mR);
+                    __delay_ms(DELAY);
+                    direction = 2;
 
-                        turnRight(&mL, &mR);
-
-                        direction = 2;
-
-                    }
 
 
                 }
             }
-            //stop(&mL, &mR);
-            //            __delay_ms(100);
         }
 
 
@@ -206,19 +192,19 @@ void main(void) {
             __delay_ms(10);
 
             //        while (((TMR0H << 8) | TMR0L) <= forwardsTime[counter]) {      
-            for (char ii = 0; ii < counter; ii++) {
+            for (char ii = 0; ii < counter;  ii++) {
 
                 //                TMR0H = 0;
                 //                TMR0L = 0;
-                if (forwardsDirection[counter - ii] == 1) {
+                if (forwardsDirection[ii] == 1) {
                     turnRight(&mL, &mR);
-                } else if (forwardsDirection[counter - ii] == 2) {
+                } else if (forwardsDirection[ii] == 2) {
                     turnLeft(&mL, &mR);
-                } else if (forwardsDirection[counter - ii] == 0) {
+                } else if (forwardsDirection[ii] == 0) {
                     backwards(&mL, &mR);
-
-                }
-                stop(&mL, &mR);
+                                 }
+           
+                __delay_ms(DELAY);
 
             }
             stop(&mL, &mR);
