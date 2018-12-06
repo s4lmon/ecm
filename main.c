@@ -5,7 +5,7 @@
 #define _XTAL_FREQ 8000000
 #define PWMPERIOD 199
 #define TIME 100
-#define DELAY 1
+#define DELAY 500
 #include "lcd.h"
 #include "ir.h"
 #include "motor.h"
@@ -124,13 +124,13 @@ void main(void) {
             //            Values.right = measureIRRight();
 
             print_IR(&Values);
-            //            LCD_clear();
-            //            char buf[16];
-            //            LCD_line(1);
-            //            sprintf(buf, "Left: %u", count_encoder);
-            //            LCD_string(buf);
+                        LCD_clear();
+                        char buf[16];
+                        LCD_line(1);
+                        sprintf(buf, "Count: %c", counter);
+                        LCD_string(buf);
             //
-            //            __delay_ms(50);
+                        __delay_ms(50);
             //            __delay_ms(50);
 
             int threshold = 50;
@@ -142,37 +142,54 @@ void main(void) {
             }
 
             if ((diff < -threshold)) {
-                stop(&mL, &mR);
-                forwardsDirection[counter] = direction;
+                if (direction != 1) {
+                    stop(&mL, &mR);
+                }
+                
+//                stop(&mL, &mR);
+                
+                direction = 1;
                 counter++;
+                forwardsDirection[counter] = direction;
                 turnLeft(&mL, &mR);
                 __delay_ms(DELAY);
-                direction = 1;
+    
             } else if (diff > threshold) {
-                stop(&mL, &mR);
-                forwardsDirection[counter] = direction;
+                if (direction != 2) {
+                    stop(&mL, &mR);
+                }
+//                stop(&mL, &mR);
+                
+                direction = 2;
                 counter++;
+                forwardsDirection[counter] = direction;
                 turnRight(&mL, &mR);
                 __delay_ms(DELAY);
-
-                direction = 2;
+                
             } else { //either forwards or signal lost
                 if ((Values.left > 199) | (Values.right > 199)) {
                     if (direction != 0) {
                         stop(&mL, &mR);
-                        forwardsDirection[counter] = direction;
-                        counter++;
-                        forwards(&mL, &mR);
-                        __delay_ms(DELAY);
-                        direction = 0;
                     }
-                } else {
-                    stop(&mL, &mR);
-                    forwardsDirection[counter] = direction;
+//                    stop(&mL, &mR);
+                    
+                    direction = 3;
                     counter++;
+                    forwardsDirection[counter] = direction;
+                    forwards(&mL, &mR);
+                    __delay_ms(DELAY);
+
+                } else {
+                    if (direction != 2) {
+                        stop(&mL, &mR);
+                    }
+//                    stop(&mL, &mR);
+                    
+                    direction = 2;
+                    counter++;
+                    forwardsDirection[counter] = direction;
                     turnRight(&mL, &mR);
                     __delay_ms(DELAY);
-                    direction = 2;
 
 
 
@@ -183,28 +200,33 @@ void main(void) {
 
 
 
+
         while (card_read == 1) { //the interrupt for the RFID tag sets card_read to 1 when the card is read
             stop(&mL, &mR);
             //            counter = reverse_routine(&forwardsDirection[counter], &forwardsTime[counter], direction, counter);
-            forwardsDirection[counter] = direction;
-            counter++;
+      
             print_RFID(&string_rfid[0], &string_rfid[0]); //sends the significant characters read from the RFID to the LCD
             __delay_ms(10);
 
             //        while (((TMR0H << 8) | TMR0L) <= forwardsTime[counter]) {      
-            for (char ii = 0; ii < counter;  ii++) {
+            for (char ii = 0; ii < counter; ii++) {
 
                 //                TMR0H = 0;
                 //                TMR0L = 0;
-                if (forwardsDirection[ii] == 1) {
+                if (forwardsDirection[counter - ii] == 1) {
                     turnRight(&mL, &mR);
-                } else if (forwardsDirection[ii] == 2) {
+                } else if (forwardsDirection[counter - ii] == 2) {
                     turnLeft(&mL, &mR);
-                } else if (forwardsDirection[ii] == 0) {
+                } else if (forwardsDirection[counter - ii] == 3) {
                     backwards(&mL, &mR);
-                                 }
-           
+                } else {
+                    stop(&mL, &mR);
+                }
+
+
                 __delay_ms(DELAY);
+//                stop(&mL, &mR);
+                card_read = 3;
 
             }
             stop(&mL, &mR);
