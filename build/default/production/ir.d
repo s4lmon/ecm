@@ -1,1 +1,1 @@
-build/default/production/ir.p1: ir.c ir.h
+ build/default/production/ir.d  build/default/production/ir.p1:  ir.c ir.h

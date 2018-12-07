@@ -11,14 +11,16 @@ void init_RFID(void) {
     TXSTAbits.TXEN = 1; //enable transmitter, other settings default
 }
 
-void interrupt_EUSART(void) {
+void interrupt_EUSART(void) { //this is not EUSART, needs moving
     RCREG;
     RCREG;
     RCREG; //Calling RCREG to clear any previous data
     PIE1bits.RCIE = 1; //Enable EUSART interrupt
     INTCONbits.GIEL = 1; //enable peripheral interrupts
     INTCONbits.GIEH = 1; //enable global interrupts
-    INTCON3bits.INT2IE = 1; //enable external interrupts
+    INTCON3bits.INT2IE = 1;
+    INTCONbits.INT0IE = 1; //for button
+    INTCON3bits.INT2IE = 1; //for encoder
 }
 //this functions inputs the address of the RFID string array. Values in the LCD displaying ir readings are cleared and the RFID string is sent to the LCD
 

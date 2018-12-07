@@ -1,1 +1,1 @@
-build/default/production/lcd.p1: lcd.c lcd.h ir.h
+ build/default/production/lcd.d  build/default/production/lcd.p1:  lcd.c ir.h lcd.h

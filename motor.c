@@ -1,7 +1,7 @@
 #include "motor.h"
-#define POWER 70
-#define POWER2 70
-#define POWER3 80
+#define POWER 90
+#define POWER2 50
+#define POWER3 20
 #define DELAYTIME 300
 
 /*
@@ -68,22 +68,20 @@ void decelerate(struct Motor *m) {
 // use setMotorPWM to perform low level update
 // bring the robot base to a stop
 
-void stop(struct Motor *mL, struct Motor *mR)
-{
+void stop(struct Motor *mL, struct Motor *mR) {
     // While either motor is more than zero
     // ----------------------------------------------------------------------
-    while (((mR->power) > 0)||((mL->power) > 0))
-    {
+    while (((mR->power) > 0) || ((mL->power) > 0)) {
         // Check to see if either motor is zero, and decrement respectively
         // ------------------------------------------------------------------
-//        if ((mR->power) > 0)  // If right still more than zero
-//        {
-//            (mR->power)--;      
-//        }
-//        if ((mL->power) > 0)  // If left still more than zero
-//        {
-//            (mL->power)--;
-//        }   
+        //        if ((mR->power) > 0)  // If right still more than zero
+        //        {
+        //            (mR->power)--;      
+        //        }
+        //        if ((mL->power) > 0)  // If left still more than zero
+        //        {
+        //            (mL->power)--;
+        //        }   
         mL->power = 0;
         mR->power = 0;
         // Update PWM for each
@@ -197,5 +195,39 @@ void backwards(struct Motor *mL, struct Motor *mR) {
     }
 }
 
+void smoothRight(struct Motor *mL, struct Motor *mR) {
+    
+        mL->direction = 0;
+        mR->direction = 1;
+        while (mL->power < POWER2 || mR->power < POWER3) {
+            if (mL->power < POWER2) {
+                mL->power++;
+            }
+            if (mR->power < POWER3) {
+                mR->power++;
+            }
+            setMotorPWM(mL); //pass pointer to setMotorSpeed function (not &m here)
+            setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
+            __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
+        }
+    
+}
 
+void smoothLeft(struct Motor *mL, struct Motor *mR) {
+    
+        mL->direction = 1;
+        mR->direction = 0;
+        while (mL->power < POWER3 || mR->power < POWER2) {
+            if (mL->power < POWER3) {
+                mL->power++;
+            }
+            if (mR->power < POWER2) {
+                mR->power++;
+            }
+            setMotorPWM(mL); //pass pointer to setMotorSpeed function (not &m here)
+            setMotorPWM(mR); //pass pointer to setMotorSpeed function (not &m here)
+            __delay_ms(5); //delay of 5 ms (500 ms from 0 to 100 full power)
+        }
+    
+}
 

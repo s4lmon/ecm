@@ -1,1 +1,1 @@
-build/default/debug/main.p1: main.c lcd.h ir.h motor.h rfid.h reverse.h
+ build/default/debug/main.d  build/default/debug/main.p1:  main.c ir.h lcd.h reverse.h rfid.h motor.h

@@ -1,1 +1,1 @@
-build/default/production/reverse.p1: reverse.c reverse.h motor.h
+ build/default/production/reverse.d  build/default/production/reverse.p1:  reverse.c reverse.h motor.h

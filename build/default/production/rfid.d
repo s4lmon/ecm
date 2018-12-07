@@ -1,1 +1,1 @@
-build/default/production/rfid.p1: rfid.c rfid.h lcd.h ir.h
+ build/default/production/rfid.d  build/default/production/rfid.p1:  rfid.c ir.h lcd.h rfid.h

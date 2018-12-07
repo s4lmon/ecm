@@ -1,1 +1,1 @@
-build/default/debug/motor.p1: motor.c motor.h
+ build/default/debug/motor.d  build/default/debug/motor.p1:  motor.c motor.h

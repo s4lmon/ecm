@@ -13,8 +13,9 @@ struct {
    unsigned int right : 2;
 } Direction ;
 
-void initTimer0(void);
+void init_Timer0(void);
 void initEncoder(void); 
+int reverse_routine(int *backDirection, int *backTime, char dir, int counter);
 
 #endif	
 

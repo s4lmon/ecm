@@ -1,1 +1,1 @@
-build/default/debug/ir.p1: ir.c ir.h
+ build/default/debug/ir.d  build/default/debug/ir.p1:  ir.c ir.h

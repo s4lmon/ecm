@@ -1,2 +1,1 @@
-build/default/production/main.p1: main.c lcd.h ir.h motor.h rfid.h \
-  reverse.h
+ build/default/production/main.d  build/default/production/main.p1:  main.c ir.h lcd.h reverse.h rfid.h motor.h

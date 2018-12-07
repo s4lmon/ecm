@@ -1,1 +1,1 @@
-build/default/debug/rfid.p1: rfid.c rfid.h lcd.h ir.h
+ build/default/debug/rfid.d  build/default/debug/rfid.p1:  rfid.c ir.h lcd.h rfid.h

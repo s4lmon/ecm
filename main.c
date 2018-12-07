@@ -5,7 +5,7 @@
 #define _XTAL_FREQ 8000000
 #define PWMPERIOD 199
 #define TIME 100
-#define DELAY 500
+#define DELAY 400
 #include "lcd.h"
 #include "ir.h"
 #include "motor.h"
@@ -124,13 +124,13 @@ void main(void) {
             //            Values.right = measureIRRight();
 
             print_IR(&Values);
-                        LCD_clear();
-                        char buf[16];
-                        LCD_line(1);
-                        sprintf(buf, "Count: %c", counter);
-                        LCD_string(buf);
-            //
-                        __delay_ms(50);
+//                        LCD_clear();
+//                        char buf[16];
+//                        LCD_line(1);
+//                        sprintf(buf, "Count: %c", counter);
+//                        LCD_string(buf);
+//            //
+//                        __delay_ms(50);
             //            __delay_ms(50);
 
             int threshold = 50;
@@ -168,7 +168,7 @@ void main(void) {
                 
             } else { //either forwards or signal lost
                 if ((Values.left > 199) | (Values.right > 199)) {
-                    if (direction != 0) {
+                    if (direction != 3) {
                         stop(&mL, &mR);
                     }
 //                    stop(&mL, &mR);
@@ -186,8 +186,8 @@ void main(void) {
 //                    stop(&mL, &mR);
                     
                     direction = 2;
-                    counter++;
-                    forwardsDirection[counter] = direction;
+//                    counter++;
+//                    forwardsDirection[counter] = direction;
                     turnRight(&mL, &mR);
                     __delay_ms(DELAY);
 
@@ -225,10 +225,11 @@ void main(void) {
 
 
                 __delay_ms(DELAY);
-//                stop(&mL, &mR);
-                card_read = 3;
+//                 stop(&mL, &mR);
+                
 
             }
+            card_read = 3;
             stop(&mL, &mR);
 
 
